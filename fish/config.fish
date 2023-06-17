@@ -1,4 +1,5 @@
 set -Ux EDITOR nvim
+set -U fish_greeting ""
 
 if uname -m | grep --quiet "arm64" 2>&1 > /dev/null ;
   eval (/opt/homebrew/bin/brew shellenv)
@@ -45,6 +46,6 @@ set -g fish_pager_color_completion $foreground
 set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
 
-  
+
 
 export PATH="$PATH:$HOME/.local/bin"
