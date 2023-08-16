@@ -75,6 +75,11 @@ nmap("S", "<Plug>(leap-backward)")
 nnoremap("<leader>t", "<cmd>TroubleToggle<cr>")
 
 -- LSP
+nnoremap("gf", "<cmd>Lspsaga finder<cr>")
+nnoremap("gd", "<cmd>Lspsaga peek_definition<cr>")
+nnoremap("H", "<cmd>Lspsaga hover_doc<cr>")
+nnoremap("K", "<cmd>Lspsaga signature_help<cr>")
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
@@ -84,9 +89,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    -- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
     vim.keymap.set("n", "<space>d", vim.lsp.buf.type_definition, opts)
     vim.keymap.set("n", "<C-0>", vim.lsp.buf.rename, opts)

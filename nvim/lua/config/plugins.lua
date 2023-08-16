@@ -298,8 +298,9 @@ return {
   },
   {
     "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
     config = function()
-      require("config.lsp.lspsaga")
+      require("plugins.lsp.lspsaga")
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
