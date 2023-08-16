@@ -169,6 +169,13 @@ return {
       require("plugins.colorizer")
     end,
   },
+  {
+    "rcarriga/nvim-notify",
+    event = "VimEnter",
+    config = function()
+      require("plugins.notify")
+    end,
+  },
 
   ----------------------------------------
   -- LSP Base
@@ -288,6 +295,16 @@ return {
     config = function()
       require("plugins.lsp_signature")
     end,
+  },
+  {
+    "nvimdev/lspsaga.nvim",
+    config = function()
+      require("config.lspsaga")
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
   },
 
   ----------------------------------------
