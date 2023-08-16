@@ -97,7 +97,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-  },                          -- Find and replace
+  }, -- Find and replace
   {
     "kylechui/nvim-surround", -- Quickly change surrounding brackets, quotes, tags, whatever
     keys = { "c" },
@@ -282,6 +282,13 @@ return {
     event = "BufEnter *.*",
     config = true,
   },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("plugins.lsp_signature")
+    end,
+  },
 
   ----------------------------------------
   -- Git
@@ -360,8 +367,8 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
+      "nvim-telescope/telescope.nvim",
+    },
   },
   {
     "chrisgrieser/nvim-early-retirement",
@@ -371,13 +378,12 @@ return {
     end,
   },
 
-
   ----------------------------------------
   -- Language Support
   ----------------------------------------
   {
     "dag/vim-fish",
     ft = "fish",
-    event = "BufEnter *.fish"
-  }
+    event = "BufEnter *.fish",
+  },
 }
