@@ -8,7 +8,12 @@ end
 alias vi "nvim"
 alias vim "nvim"
 
+# nodenv
 status --is-interactive; and source (nodenv init -|psub)
+
+# rbenv
+set -x PATH $HOME/.rbenv/bin $PATH
+rbenv init - | source
 
 
 # Tokyonight Theme
