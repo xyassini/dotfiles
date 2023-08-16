@@ -31,7 +31,7 @@ return {
       { "cljoly/telescope-repo.nvim" },
     },
     config = function()
-      require("plugins.telescope")
+      require("plugins.ui.telescope")
     end,
   },
   {
@@ -41,14 +41,14 @@ return {
       "NvimTreeOpen",
     },
     config = function()
-      require("plugins.tree")
+      require("plugins.ui.tree")
     end,
   },
   {
     "nvim-lualine/lualine.nvim",
     event = "BufEnter",
     config = function()
-      require("plugins.lualine")
+      require("plugins.ui.lualine")
     end,
   },
   {
@@ -62,7 +62,7 @@ return {
     "andreadev-it/shade.nvim",
     event = "BufWinEnter",
     config = function()
-      require("plugins.shade")
+      require("plugins.ui.shade")
     end,
   },
   {
@@ -70,7 +70,7 @@ return {
     event = "VeryLazy",
     dependencies = "MunifTanjim/nui.nvim",
     config = function()
-      require("plugins.dressing")
+      require("plugins.ui.dressing")
     end,
   },
 
@@ -82,14 +82,14 @@ return {
     event = "BufEnter *.*",
     branch = "jsx",
     config = function()
-      require("plugins.comment")
+      require("plugins.lsp.comment")
     end,
   },
   {
     "RRethy/vim-illuminate", -- Highlight current word/method/var
     event = "InsertEnter",
     config = function()
-      require("plugins.illuminate")
+      require("plugins.lsp.illuminate")
     end,
   },
   {
@@ -137,14 +137,14 @@ return {
     "windwp/nvim-autopairs", -- Auto-match brackets and quotes
     event = "InsertEnter *.*",
     config = function()
-      require("plugins.autopairs")
+      require("plugins.cmp.autopairs")
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
     event = "BufRead *.*",
     config = function()
-      require("plugins.treesitter")
+      require("plugins.lsp.treesitter")
     end,
     dependencies = {
       "JoosepAlviste/nvim-ts-context-commentstring",
@@ -156,7 +156,7 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     event = "BufWinEnter *.*",
     config = function()
-      require("plugins.treesitter-context")
+      require("plugins.lsp.treesitter-context")
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
@@ -173,7 +173,7 @@ return {
     "rcarriga/nvim-notify",
     event = "VimEnter",
     config = function()
-      require("plugins.notify")
+      require("plugins.ui.notify")
     end,
   },
 
@@ -211,7 +211,7 @@ return {
       "jose-elias-alvarez/null-ls.nvim",
     },
     config = function()
-      require("plugins.null-ls")
+      require("plugins.lsp.null-ls")
     end,
   },
 
@@ -236,7 +236,7 @@ return {
       {
         "David-Kunz/cmp-npm",
         config = function()
-          require("plugins.cmp-npm")
+          require("plugins.cmp.cmp-npm")
         end,
       },
       {
@@ -273,14 +273,14 @@ return {
     event = "BufWinEnter *.*",
     cond = config.plugins.inlayhints,
     config = function()
-      require("plugins.inlay-hints")
+      require("plugins.lsp.inlay-hints")
     end,
   },
   {
     "zbirenbaum/copilot.lua", -- GitHub Copilot
     event = "InsertEnter",
     config = function()
-      require("plugins.copilot")
+      require("plugins.cmp.copilot")
     end,
   },
   {
@@ -293,13 +293,13 @@ return {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",
     config = function()
-      require("plugins.lsp_signature")
+      require("plugins.lsp.lsp_signature")
     end,
   },
   {
     "nvimdev/lspsaga.nvim",
     config = function()
-      require("config.lspsaga")
+      require("config.lsp.lspsaga")
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
@@ -315,7 +315,7 @@ return {
     event = "BufRead *.*",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("plugins.gitsigns")
+      require("plugins.git.gitsigns")
     end,
   },
   {
@@ -339,7 +339,7 @@ return {
     event = "BufEnter package.json",
     dependencies = { "MunifTanjim/nui.nvim" },
     config = function()
-      require("plugins.package-info")
+      require("plugins.lsp.package-info")
     end,
   },
   {
@@ -363,7 +363,7 @@ return {
     "rgroli/other.nvim",
     event = "BufWinEnter *.{html,css,scss,ts}",
     config = function()
-      require("plugins.other")
+      require("plugins.lsp.other")
     end,
   },
   {
@@ -374,7 +374,7 @@ return {
     "code-biscuits/nvim-biscuits",
     event = "BufRead *.*",
     config = function()
-      require("plugins.biscuits")
+      require("plugins.lsp.biscuits")
     end,
   },
   {
