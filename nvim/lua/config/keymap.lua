@@ -40,7 +40,7 @@ nnoremap("<leader>g", "<cmd>LazyGit<CR>")
 -- Formatting
 nnoremap("ö", "<cmd>lua vim.lsp.buf.format()<CR>")
 -- nnoremap("ö", "<cmd>Format<CR>")
-nnoremap("<leader>f", "gg=G<C-o>")
+-- nnoremap("<leader>f", "gg=G<C-o>")
 
 -- Substitute keybind
 nnoremap("<leader>r", ":%s//g<left><left>")
@@ -72,5 +72,27 @@ nnoremap("<leader>l", "<cmd>lua require('logsitter').log()<cr>")
 nmap("S", "<Plug>(leap-backward)")
 
 -- Toggle Trouble Diagnostic List
-nnoremap("<leader>d", "<cmd>TroubleToggle<cr>")
+nnoremap("<leader>t", "<cmd>TroubleToggle<cr>")
 
+-- LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "<space>d", vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n", "<C-0>", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<space>f", function()
+      vim.lsp.buf.format({ async = true })
+    end, opts)
+  end,
+})
