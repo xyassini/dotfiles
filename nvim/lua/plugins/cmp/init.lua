@@ -110,7 +110,7 @@ cmp.setup({
         npm = "npm",
         Copilot = "ﮧ",
         nvim_lsp = "",
-        buffer = "",
+        buffer = "",
         nvim_lua = "",
         luasnip = "",
         calc = "",
