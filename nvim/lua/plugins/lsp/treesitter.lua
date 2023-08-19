@@ -1,5 +1,5 @@
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if (not status) then
+if not status then
   print("Error: Treesitter not installed.")
   return
 end
@@ -23,6 +23,24 @@ treesitter.setup({
     "markdown",
     "prisma",
     "vim",
+    "c",
+    "toml",
+    "sql",
+    "rust",
+    "jsdoc",
+    "gitignore",
+    "fish",
+    "dockerfile",
+    "csv",
+    "comment",
+    "arduino",
+    "cmake",
+    "cpp",
+    "make",
+    "markdown_inline",
+    "python",
+    "yaml",
+    "xml",
   },
   sync_install = false,
   highlight = {
@@ -30,7 +48,7 @@ treesitter.setup({
   },
 
   indent = {
-    enable = true
+    enable = true,
   },
 
   context_commentstring = {
