@@ -25,7 +25,8 @@ mason_lsp.setup({
     "svelte",
     "astro",
     "emmet_ls",
-    "dockerls"
+    "dockerls",
+    "clangd"
   },
   automatic_installation = true,
 })

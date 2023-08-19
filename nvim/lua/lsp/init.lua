@@ -77,7 +77,23 @@ lspconfig.rust_analyzer.setup({
   settings = require("lsp.servers.rust_analyzer").settings,
 })
 
-for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "prismals", "angularls", "emmet_ls", "dockerls", "svelte" }) do
+lspconfig.clangd.setup({
+  on_attach = on_attach,
+  capabilities = require("lsp.servers.clangd").capabilities,
+  handlers = handlers,
+})
+
+for _, server in ipairs({
+  "bashls",
+  "emmet_ls",
+  "graphql",
+  "html",
+  "prismals",
+  "angularls",
+  "emmet_ls",
+  "dockerls",
+  "svelte",
+}) do
   lspconfig[server].setup({
     on_attach = on_attach,
     capabilities = capabilities,
