@@ -31,7 +31,6 @@ treesitter.setup({
     "gitignore",
     "fish",
     "dockerfile",
-    "csv",
     "comment",
     "arduino",
     "cmake",
