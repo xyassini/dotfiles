@@ -3,4 +3,8 @@ if not status then
   print("lspsaga status: " .. vim.inspect(status))
 end
 
-lspsaga.setup({})
+lspsaga.setup({
+  lightbulb = {
+    enable = false,
+  },
+})
