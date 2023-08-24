@@ -11,7 +11,6 @@ mason.setup()
 
 mason_lsp.setup({
   ensure_installed = {
-    "bashls",
     "cssls",
     "eslint",
     "graphql",

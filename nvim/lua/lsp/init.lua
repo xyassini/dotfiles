@@ -84,7 +84,6 @@ lspconfig.clangd.setup({
 })
 
 for _, server in ipairs({
-  "bashls",
   "emmet_ls",
   "graphql",
   "html",
