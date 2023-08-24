@@ -12,7 +12,7 @@ alias vim "nvim"
 status --is-interactive; and source (nodenv init -|psub)
 
 # rbenv
-if type -q $rbenv
+if type -q rbenv
   set -x PATH $HOME/.rbenv/bin $PATH
   rbenv init - | source
 end
