@@ -9,6 +9,7 @@ fi
 
 if [[ "$OSTYPE" == "linux"* ]]; then
   ln -s "$(pwd)/i3" "$HOME/.config"
+  ln -s "$(pwd)/kitty" "$HOME/.config"
 fi
 
 
