@@ -18,8 +18,12 @@ if [[ "$OSTYPE" == "linux"* ]]; then
   mkdir -p "$HOME/.config/kitty_bak"
   mv "$HOME/.config/kitty" "$HOME/.config/kitty_bak"
   ln -s "$(pwd)/kitty" "$HOME/.config"
+  mkdir -p "$HOME/.config/rofi_bak"
   mv "$HOME/.config/rofi" "$HOME/.config/rofi_bak"
   ln -s "$(pwd)/rofi" "$HOME/.config"
+  mkdir -p "$HOME/.config/waybar"
+  mv "$HOME/.config/waybar" "$HOME/.config/waybar_bak"
+  ln -s "$(pwd)/waybar" "$HOME/.config"
 fi
 
 
