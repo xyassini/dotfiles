@@ -1,6 +1,10 @@
 #!/bin/bash
 
+mkdir -p "$HOME/.config/fish_bak"
+mv "$HOME/.config/fish" "$HOME/.config/fish_bak"
 ln -s "$(pwd)/fish" "$HOME/.config"
+mkdir -p "$HOME/.config/nvim_bak"
+mv "$HOME/.config/nvim" "$HOME/.config/nvim_bak"
 ln -s "$(pwd)/nvim" "$HOME/.config"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -8,8 +12,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 if [[ "$OSTYPE" == "linux"* ]]; then
-  ln -s "$(pwd)/i3" "$HOME/.config"
+  mkdir -p "$HOME/.config/hypr_bak"
+  mv "$HOME/.config/hypr" "$HOME/.config/hypr_bak"
+  ln -s "$(pwd)/hypr" "$HOME/.config"
+  mkdir -p "$HOME/.config/kitty_bak"
+  mv "$HOME/.config/kitty" "$HOME/.config/kitty_bak"
   ln -s "$(pwd)/kitty" "$HOME/.config"
+  mv "$HOME/.config/rofi" "$HOME/.config/rofi_bak"
+  ln -s "$(pwd)/rofi" "$HOME/.config"
 fi
 
 
