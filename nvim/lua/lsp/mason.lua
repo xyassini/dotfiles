@@ -25,6 +25,7 @@ mason_lsp.setup({
     "astro",
     "emmet_ls",
     "dockerls",
+    "intelephense",
     "clangd"
   },
   automatic_installation = true,
