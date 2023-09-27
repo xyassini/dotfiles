@@ -394,4 +394,8 @@ return {
     ft = "fish",
     event = "BufEnter *.fish",
   },
+  {
+    "amadeus/vim-mjml",
+    ft = "mjml",
+  },
 }
