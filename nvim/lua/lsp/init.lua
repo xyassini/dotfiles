@@ -83,15 +83,22 @@ lspconfig.clangd.setup({
   handlers = handlers,
 })
 
+lspconfig.emmet_ls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  handlers = handlers,
+  filetypes = require("lsp.servers.emmet_ls").filetypes,
+})
+
 for _, server in ipairs({
   "emmet_ls",
   "graphql",
   "html",
   "prismals",
   "angularls",
-  "emmet_ls",
   "dockerls",
   "svelte",
+  "intelephense",
 }) do
   lspconfig[server].setup({
     on_attach = on_attach,
