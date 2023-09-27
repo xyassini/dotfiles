@@ -56,3 +56,7 @@ set -g fish_pager_color_selected_background --background=$selection
 
 
 export PATH="$PATH:$HOME/.local/bin"
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
