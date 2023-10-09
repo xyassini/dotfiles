@@ -7,6 +7,9 @@ end
 
 alias vi "nvim"
 alias vim "nvim"
+alias v "nvim ."
+alias r "ranger"
+alias g "lazygit"
 
 # nodenv
 status --is-interactive; and source (nodenv init -|psub)
