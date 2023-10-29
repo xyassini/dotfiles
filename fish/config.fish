@@ -20,6 +20,12 @@ if type -q rbenv
   rbenv init - | source
 end
 
+if type -q pyenv
+  set -Ux PYENV_ROOT $HOME/.pyenv
+  fish_add_path $PYENV_ROOT/bin
+  pyenv init - | source
+end
+
 
 # Tokyonight Theme
 set -l foreground c0caf5
