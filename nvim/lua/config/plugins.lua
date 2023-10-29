@@ -3,22 +3,22 @@ return {
   ----------------------------------------
   -- Themes
   ----------------------------------------
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require("config.colorscheme")
-  --   end,
-  -- },
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       require("config.colorscheme")
     end,
   },
+  -- {
+  --   "nyoom-engineering/oxocarbon.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require("config.colorscheme")
+  --   end,
+  -- },
 
   ----------------------------------------
   -- User Interface
