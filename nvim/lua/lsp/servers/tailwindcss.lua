@@ -19,6 +19,7 @@ end
 
 local filetypes = {
   "html",
+  "eruby",
   "mdx",
   "javascript",
   "javascriptreact",

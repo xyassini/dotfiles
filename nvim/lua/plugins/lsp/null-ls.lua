@@ -13,10 +13,12 @@ mason_null_ls.setup({
 })
 
 null_ls.setup({
+  debug = true,
   sources = {
-    require("null-ls").builtins.diagnostics.codespell.with({
+    null_ls.builtins.diagnostics.codespell.with({
       filetypes = { "markdown", "text" },
     }),
     require("typescript.extensions.null-ls.code-actions"),
+    null_ls.builtins.formatting.erb_lint
   },
 })

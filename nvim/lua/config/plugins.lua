@@ -15,7 +15,7 @@ return {
     "nyoom-engineering/oxocarbon.nvim",
     lazy = false,
     priority = 1000,
-    config = function ()
+    config = function()
       require("config.colorscheme")
     end,
   },
@@ -406,4 +406,21 @@ return {
     "amadeus/vim-mjml",
     ft = "mjml",
   },
+  {
+    "vim-ruby/vim-ruby",
+    ft = { "ruby", "eruby" },
+  },
+  {
+    "tpope/vim-rails",
+    ft = { "ruby", "eruby" },
+  },
+  {
+    "tpope/vim-endwise",
+    ft = { "ruby", "eruby" },
+  },
+
+  -- use("vim-ruby/vim-ruby")
+  --   use("tpope/vim-rails")
+  --   use("tpope/vim-endwise")
+  --   use("tpope/vim-bundler")
 }
