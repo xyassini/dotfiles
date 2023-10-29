@@ -38,9 +38,9 @@ nnoremap("<C-ß>", "<cmd>:sp<CR><cmd>lua require('telescope.builtin').find_files
 nnoremap("<leader>g", "<cmd>LazyGit<CR>")
 
 -- Formatting
-nnoremap("ö", "<cmd>lua vim.lsp.buf.format()<CR>")
+nnoremap("ö", "<cmd>lua vim.lsp.buf.format({timeout_ms = 10000})<CR>")
 -- nnoremap("ö", "<cmd>Format<CR>")
--- nnoremap("<leader>f", "gg=G<C-o>")
+nnoremap("<leader>F", "gg=G<C-o>")
 
 -- Substitute keybind
 nnoremap("<leader>r", ":%s//g<left><left>")
@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<C-0>", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<space>f", function()
-      vim.lsp.buf.format({ async = true })
+      vim.lsp.buf.format({ async = true, timeout_ms = 10000 })
     end, opts)
   end,
 })
