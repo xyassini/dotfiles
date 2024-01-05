@@ -393,6 +393,9 @@ return {
       require("plugins.early-retirement")
     end,
   },
+  {
+    "wakatime/vim-wakatime"
+  },
 
   ----------------------------------------
   -- Language Support
@@ -418,6 +421,7 @@ return {
     "tpope/vim-endwise",
     ft = { "ruby", "eruby" },
   },
+
 
   -- use("vim-ruby/vim-ruby")
   --   use("tpope/vim-rails")
