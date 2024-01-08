@@ -339,6 +339,10 @@ return {
       vim.g.lazygit_floating_window_scaling_factor = 1
     end,
   },
+  {
+    "f-person/git-blame.nvim",
+    event = "BufRead *.*"
+  },
 
   ----------------------------------------
   -- JavaScript/TypeScript
