@@ -99,6 +99,7 @@ for _, server in ipairs({
   "dockerls",
   "svelte",
   "intelephense",
+  "astro"
 }) do
   lspconfig[server].setup({
     on_attach = on_attach,
