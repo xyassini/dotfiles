@@ -69,5 +69,6 @@
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-ruby": { "branch": "master", "commit": "f06f069ce67bdda6f2cd408f8859cdf031e5b6b4" },
   "vim-wakatime": { "branch": "master", "commit": "cae21a19c3db4d9aadd5d320de3da0c99dfd0f62" },
-  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
+  "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
+  "xcodebuild.nvim": { "branch": "main", "commit": "e2ab20bc5dbb0021f9523173522fca10c61658e3" }
 }

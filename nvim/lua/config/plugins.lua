@@ -425,6 +425,14 @@ return {
     "tpope/vim-endwise",
     ft = { "ruby", "eruby" },
   },
+  {
+    "wojciech-kulik/xcodebuild.nvim",
+    ft = { "objc", "objc++", "swift" },
+    event = "BufEnter *.*",
+    config = function()
+      require("plugins.xcodebuild")
+    end
+  }
 
 
   -- use("vim-ruby/vim-ruby")

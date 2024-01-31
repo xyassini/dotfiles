@@ -16,6 +16,8 @@ nnoremap("<C-b>", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 nnoremap("<C-g>", "<cmd>lua require('telescope.builtin').git_status()<CR>")
 -- Project Picker
 nnoremap("<leader>p", "<cmd>lua require('telescope').extensions.projects.projects()<cr>")
+-- Show quickfix list
+nnoremap("<leader>q", "<cmd>Telescope quickfix<cr>")
 
 -- Other.nvim mappings
 nnoremap("<leader>o", "<cmd>Other<CR>")

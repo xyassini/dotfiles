@@ -107,3 +107,20 @@ for _, server in ipairs({
     handlers = handlers,
   })
 end
+
+
+local util = require("lspconfig.util")
+
+lspconfig.sourcekit.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  cmd = {
+    "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+  },
+  root_dir = function(filename, _)
+    return util.root_pattern("buildServer.json")(filename)
+        or util.root_pattern("*.xcodeproj", "*.xcworkspace")(filename)
+        or util.find_git_ancestor(filename)
+        or util.root_pattern("Package.swift")(filename)
+  end,
+})
