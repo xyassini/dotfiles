@@ -33,6 +33,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "BurntSushi/ripgrep",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
