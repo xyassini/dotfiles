@@ -1,4 +1,5 @@
 local nmap = require("utils.remap").nmap
+local imap = require("utils.remap").imap
 
 ---------------------
 -- Navigation
@@ -28,6 +29,13 @@ nmap("<C-g>", "<cmd>Telescope git_status<CR>")
 
 -- LazyGit
 nmap("<leader>g", "<cmd>LazyGit<CR>")
+
+--
+---------------------
+-- Language Servers
+---------------------
+nmap("<C-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+imap("<C-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 
 
 ---------------------
