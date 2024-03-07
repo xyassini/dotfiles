@@ -36,3 +36,5 @@ nmap("<leader>g", "<cmd>LazyGit<CR>")
 -- Substitute keybind
 nmap("<leader>r", ":%s//g<left><left>")
 
+-- Format code
+nmap("ö", "<cmd>lua vim.lsp.buf.format()<CR>")

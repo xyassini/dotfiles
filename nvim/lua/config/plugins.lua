@@ -111,6 +111,17 @@ return {
   },
 
   {
+    "stevearc/conform.nvim",
+    config = function()
+      require("plugins.lsp.conform")
+    end
+  },
+
+  ----------------------
+  -- Autocomplete
+  ----------------------
+
+  {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy"
   },
@@ -177,5 +188,16 @@ return {
     event = "BufWinEnter"
   },
 
-}
 
+  ----------------------
+  -- Convenience
+  ----------------------
+
+  {
+    "Pocco81/auto-save.nvim",
+    event = "InsertLeave",
+    config = function()
+      require("plugins.auto-save")
+    end,
+  },
+}
