@@ -59,8 +59,8 @@ return {
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
     dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
       "tree-sitter/tree-sitter-embedded-template",
+      "windwp/nvim-ts-autotag",
       { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
     },
     config = function()
@@ -199,6 +199,19 @@ return {
     config = true
   },
 
+  {
+    "axelvc/template-string.nvim",
+    ft = {
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+      "svelte",
+      "astro",
+    },
+    config = true,
+  },
+
 
   ----------------------
   -- Git
@@ -232,6 +245,19 @@ return {
 
 
   ----------------------
+  -- Navigation
+  ----------------------
+
+  {
+    "rgroli/other.nvim",
+    event = "BufWinEnter *.{html,css,scss,ts}",
+    config = function()
+      require("plugins.lsp.other")
+    end,
+  },
+
+
+  ----------------------
   -- Convenience
   ----------------------
 
@@ -241,5 +267,11 @@ return {
     config = function()
       require("plugins.auto-save")
     end,
+  },
+
+  {
+    "chrisgrieser/nvim-early-retirement",
+    event = "VeryLazy",
+    config = true
   },
 }
