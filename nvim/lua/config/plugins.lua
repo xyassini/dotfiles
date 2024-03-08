@@ -193,6 +193,12 @@ return {
     end,
   },
 
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  },
+
 
   ----------------------
   -- Git
