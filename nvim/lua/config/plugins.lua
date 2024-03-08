@@ -126,6 +126,33 @@ return {
     end
   },
 
+  {
+    "RRethy/vim-illuminate", -- Highlight current word/method/var
+    event = "BufWinEnter",
+    version = "*",
+    config = function()
+      require("plugins.lsp.illuminate")
+    end,
+  },
+
+  {
+    "kylechui/nvim-surround", -- Quickly change surrounding brackets, quotes, tags, whatever
+    keys = { "cs", "ds" },
+    config = true
+  },
+
+  {
+    "andrewferrier/debugprint.nvim",
+    keys = { "<Leader>l", "<Leader>L", "<Leader>dl" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter"
+    },
+    version = "*",
+    config = function()
+      require("plugins.lsp.debugprint")
+    end,
+  },
+
   ----------------------
   -- Autocomplete
   ----------------------
