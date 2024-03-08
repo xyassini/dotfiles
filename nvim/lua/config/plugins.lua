@@ -118,6 +118,14 @@ return {
     end
   },
 
+  {
+    "numToStr/Comment.nvim",
+    keys = { "tc", "tb", "cA", "co", "cO" },
+    config = function()
+      require("plugins.lsp.comment")
+    end
+  },
+
   ----------------------
   -- Autocomplete
   ----------------------
