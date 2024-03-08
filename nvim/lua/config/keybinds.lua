@@ -27,10 +27,13 @@ nmap("<C-f>", "<cmd>Telescope live_grep<CR>")
 nmap("<C-b>", "<cmd>Telescope buffers<CR>")
 nmap("<C-g>", "<cmd>Telescope git_status<CR>")
 
+-- Other.nvim
+nmap("<leader>o", "<cmd>Other<CR>")
+
 -- LazyGit
 nmap("<leader>g", "<cmd>LazyGit<CR>")
 
---
+
 ---------------------
 -- Language Servers
 ---------------------
