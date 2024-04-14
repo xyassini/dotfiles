@@ -1,2 +1,3 @@
-require("core.vim")
+require("core.globals")
 require("core.lazy")
+

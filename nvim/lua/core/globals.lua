@@ -17,3 +17,6 @@ vim.opt.wrap = false
 vim.g.mapleader = " "
 
 vim.api.nvim_set_option("clipboard", "unnamed")
+
+
+
