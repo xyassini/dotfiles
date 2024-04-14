@@ -42,6 +42,7 @@ end
 lspconfig.eslint.setup({
   on_attach = require("plugins.lsp.servers.eslint").on_attach,
   handlers = handlers,
-  capabilities = capabilities
+  capabilities = capabilities,
+  settings = require("plugins.lsp.servers.eslint").settings
 })
 
