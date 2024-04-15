@@ -5,9 +5,9 @@ local imap = require("utils.remap").imap
 -- Navigation
 ---------------------
 -- File Tree
-nmap("<leader>e", "<cmd>NvimTreeToggle<CR>") -- Toggle
-nmap("±", "<cmd>NvimTreeResize +5<CR>") -- Increase width
-nmap("–", "<cmd>NvimTreeResize -5<CR>") -- Decrease width
+nmap("<leader>e", "<cmd>Neotree toggle<CR>") -- Toggle
+--nmap("±", "<cmd>NvimTreeResize +5<CR>") -- Increase width
+--nmap("–", "<cmd>NvimTreeResize -5<CR>") -- Decrease width
 
 -- Move through panes in light speed (at least on a German keyboard)
 nmap("+", "<C-w>l")
