@@ -113,7 +113,7 @@ require("neo-tree").setup({
         nowait = false,         -- disable `nowait` if you have existing combos starting with this char that you want to use
       },
       ["<2-LeftMouse>"] = "open",
-      ["<cr>"] = "open",
+      ["<cr>"] = "open_with_window_picker",
       ["<esc>"] = "cancel",       -- close preview or floating neo-tree window
       ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
       -- Read `# Preview Mode` for more information
@@ -125,7 +125,7 @@ require("neo-tree").setup({
       ["t"] = "open_tabnew",
       -- ["<cr>"] = "open_drop",
       -- ["t"] = "open_tab_drop",
-      ["w"] = "open_with_window_picker",
+      ["w"] = "open",
       --["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
       ["C"] = "close_node",
       -- ['C'] = 'close_all_subnodes',
@@ -165,7 +165,7 @@ require("neo-tree").setup({
   filesystem = {
     filtered_items = {
       visible = false,       -- when true, they will just be displayed differently than normal items
-      hide_dotfiles = true,
+      hide_dotfiles = false,
       hide_gitignored = true,
       hide_hidden = true,       -- only works on Windows for hidden files/directories
       hide_by_name = {
@@ -179,7 +179,7 @@ require("neo-tree").setup({
         --".gitignored",
       },
       never_show = {       -- remains hidden even if visible is toggled to true, this overrides always_show
-        --".DS_Store",
+        ".DS_Store",
         --"thumbs.db"
       },
       never_show_by_pattern = {       -- uses glob style patterns

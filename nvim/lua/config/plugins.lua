@@ -56,6 +56,15 @@ return {
       require("plugins.ui.lualine")
     end
   },
+  {
+    's1n7ax/nvim-window-picker',
+    name = 'window-picker',
+    event = 'VeryLazy',
+    version = '2.*',
+    config = function()
+      require("plugins.ui.window-picker")
+    end,
+  },
 
   ----------------------
   -- Syntax
@@ -108,7 +117,6 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-      { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",

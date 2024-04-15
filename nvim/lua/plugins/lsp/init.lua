@@ -1,4 +1,3 @@
-require("lsp-zero")
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -15,17 +14,21 @@ local handlers = {
   ),
 }
 
-local on_attach = function (client, bufnr)
+local on_attach = function(_, bufnr)
   require("lsp_signature").on_attach({}, bufnr)
 end
 
 local default_language_servers = {
   "emmet_ls",
-  "lua_ls",
+  "bashls",
+  "clangd",
+  "cssls",
   "graphql",
   "html",
+  "tailwindcss",
   "angularls",
   "dockerls",
+  "vimls",
   "svelte",
   "astro"
 }
@@ -38,6 +41,12 @@ for _, server in ipairs(default_language_servers) do
   })
 end
 
+lspconfig.tsserver.setup({
+  handlers = handlers,
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = require("plugins.lsp.servers.tsserver").settings
+})
 
 lspconfig.eslint.setup({
   on_attach = require("plugins.lsp.servers.eslint").on_attach,
@@ -46,3 +55,16 @@ lspconfig.eslint.setup({
   settings = require("plugins.lsp.servers.eslint").settings
 })
 
+lspconfig.yamlls.setup({
+  handlers = handlers,
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = require("plugins.lsp.servers.yamlls").settings
+})
+
+lspconfig.lua_ls.setup({
+  handlers = handlers,
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = require("plugins.lsp.servers.lua_ls").settings
+})
