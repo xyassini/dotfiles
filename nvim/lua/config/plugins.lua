@@ -13,6 +13,11 @@ return {
   ----------------------
   -- User Interface
   ----------------------
+  {
+    "folke/neodev.nvim",
+    ft = { "lua", "vim" },
+    config = true,
+  },
 
   {
     "nvim-neo-tree/neo-tree.nvim",
