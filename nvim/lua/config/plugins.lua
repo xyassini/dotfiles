@@ -1,15 +1,6 @@
 return {
   "nvim-lua/plenary.nvim",
 
-  --[[  {
-    "tiagovla/tokyodark.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("plugins.ui.tokyodark")
-    end
-  },
-]] --
   {
     "nyoom-engineering/oxocarbon.nvim",
     lazy = false,
@@ -34,9 +25,9 @@ return {
     cmd = "Neotree",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      "3rd/image.nvim"
     },
     config = function()
       require("plugins.ui.neo-tree")
@@ -258,7 +249,7 @@ return {
       "LazyGitFilter",
     },
     config = function()
-      vim.g.lazygit_floating_window_scaling_factor = 1
+      vim.g.lazygit_floating_window_scaling_factor = 0.9
     end,
   },
 
