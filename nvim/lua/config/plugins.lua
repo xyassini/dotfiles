@@ -1,12 +1,21 @@
 return {
   "nvim-lua/plenary.nvim",
 
-  {
-    "folke/tokyonight.nvim",
+  --[[  {
+    "tiagovla/tokyodark.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("plugins.ui.tokyonight")
+      require("plugins.ui.tokyodark")
+    end
+  },
+]] --
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("plugins.ui.oxocarbon")
     end
   },
 

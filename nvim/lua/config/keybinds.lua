@@ -49,3 +49,10 @@ nmap("<leader>r", ":%s//g<left><left>")
 
 -- Format code
 nmap("ö", "<cmd>lua vim.lsp.buf.format()<CR>")
+
+
+---------------------
+-- User Interface
+---------------------
+-- Toggle Light/Dark Theme
+nmap("<leader>tt", '<cmd>exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>')
