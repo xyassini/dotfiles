@@ -66,6 +66,14 @@ return {
     end,
   },
 
+  {
+    "levouh/tint.nvim",
+    event = "BufWinEnter",
+    config = function()
+      require("plugins.ui.tint")
+    end,
+  },
+
   ----------------------
   -- Syntax
   ----------------------
