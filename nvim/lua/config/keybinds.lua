@@ -50,9 +50,36 @@ nmap("<leader>r", ":%s//g<left><left>")
 -- Format code
 nmap("ö", "<cmd>lua vim.lsp.buf.format()<CR>")
 
+-- Search and Replace
+nmap(",", "<cmd>lua require('ssr').open()<CR>")
+
+
+---------------------
+-- Productivity
+---------------------
+-- Generate annotation
+nmap("<leader>d", "<cmd>Neogen<CR>")
 
 ---------------------
 -- User Interface
 ---------------------
 -- Toggle Light/Dark Theme
 nmap("<leader>tt", '<cmd>exec &bg=="light"? "set bg=dark" : "set bg=light"<CR>')
+
+---------------------
+-- Testing
+---------------------
+
+-- Run all tests
+nmap("ta", '<cmd>lua require("neotest").run.run()<CR>')
+
+-- Run tests in current file
+nmap("tf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
+
+-- Watch tests
+nmap("tw", '<cmd>lua require("neotest").watch.toggle()<CR>')
+
+-- Tests summary
+nmap("ts", '<cmd>lua require("neotest").summary.toggle()<CR>')
+
+

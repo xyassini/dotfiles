@@ -249,7 +249,7 @@ return {
       "LazyGitFilter",
     },
     config = function()
-      vim.g.lazygit_floating_window_scaling_factor = 0.9
+      vim.g.lazygit_floating_window_scaling_factor = 1
     end,
   },
 
@@ -271,6 +271,60 @@ return {
     end,
   },
 
+
+  ----------------------
+  -- Productivity
+  ----------------------
+
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = true,
+  },
+
+  {
+    "cshuaimin/ssr.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("plugins.productivity.ssr")
+    end
+  },
+  {
+    'Wansmer/treesj',
+    keys = { '<space>m', '<space>j', '<space>s' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require("plugins.productivity.treesj")
+    end,
+  },
+  {
+    "danymat/neogen",
+    event = "BufWinEnter",
+    config = true,
+  },
+
+
+  ----------------------
+  -- Testing and Debugging
+  ----------------------
+  {
+    "nvim-neotest/neotest",
+    event = "BufWinEnter",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "marilari88/neotest-vitest",
+      "nvim-neotest/neotest-jest",
+      "thenbe/neotest-playwright",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    },
+    config = function()
+      require("plugins.testing.neotest")
+    end
+  },
 
   ----------------------
   -- Convenience
