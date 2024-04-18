@@ -37,8 +37,8 @@ nmap("<leader>g", "<cmd>LazyGit<CR>")
 ---------------------
 -- Language Servers
 ---------------------
-nmap("<C-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-imap("<C-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+--nmap("<C-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+--imap("<C-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 
 
 ---------------------
