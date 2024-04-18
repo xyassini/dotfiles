@@ -313,6 +313,14 @@ return {
     event = "BufWinEnter",
     config = true,
   },
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("plugins.productivity.toggleterm")
+    end,
+  },
 
 
   ----------------------
