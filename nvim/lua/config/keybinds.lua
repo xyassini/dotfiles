@@ -76,6 +76,8 @@ nmap("ta", '<cmd>lua require("neotest").run.run()<CR>')
 -- Run tests in current file
 nmap("tf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
 
+nmap("tS", '<cmd>lua require("neotest").run.stop()<CR>')
+
 -- Watch tests
 nmap("tw", '<cmd>lua require("neotest").watch.toggle()<CR>')
 

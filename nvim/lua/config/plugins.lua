@@ -2,11 +2,11 @@ return {
   "nvim-lua/plenary.nvim",
 
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("plugins.ui.oxocarbon")
+      require("plugins.ui.tokyonight")
     end
   },
 
