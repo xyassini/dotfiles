@@ -1,0 +1,22 @@
+[
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "ctrl-+": "pane::SplitRight",
+      "ctrl-ü": "pane::SplitLeft",
+      "ctrl-ß": "pane::SplitUp",
+      "ctrl-ä": "pane::SplitDown",
+      "+": ["workspace::ActivatePaneInDirection", "Right"],
+      "ü": ["workspace::ActivatePaneInDirection", "Left"],
+      "ß": ["workspace::ActivatePaneInDirection", "Up"],
+      "ä": ["workspace::ActivatePaneInDirection", "Down"],
+      "ö": "editor::Format",
+      "space e": "workspace::ToggleLeftDock",
+      "ctrl-p": "file_finder::Toggle",
+      "ctrl-f": "workspace::NewSearch",
+      "alt-+": "zed::IncreaseBufferFontSize",
+      "alt--": "zed::DecreaseBufferFontSize",
+      "alt-.": "zed::ResetBufferFontSize"
+    }
+  }
+]
