@@ -30,7 +30,8 @@ local default_language_servers = {
   "dockerls",
   "vimls",
   "svelte",
-  "astro"
+  "astro",
+  "ruby_lsp"
 }
 
 for _, server in ipairs(default_language_servers) do
