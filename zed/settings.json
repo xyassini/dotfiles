@@ -11,11 +11,94 @@
   "autosave": "on_focus_change",
   "format_on_save": "off",
   "buffer_font_size": 12,
+  "ui_font_size": 13.5,
   "vim_mode": true,
+  "tab_size": 2,
   "relative_line_numbers": true,
   "ui_font_family": "Monaco Nerd Font Mono",
   "buffer_font_family": "Monaco Nerd Font Mono",
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true
+  },
+  "file_types": {
+    "Dockerfile": ["Dockerfile*"],
+    "HTML": ["*.erb"],
+    "json": [".prettierrc"]
+  },
   "inlay_hints": {
     "enabled": true
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "languages": {
+    "ERB": {
+      "language_servers": [
+        "html-languageserver",
+        "tailwindcss-language-server"
+      ],
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bin/bundle",
+          "arguments": [
+            "exec",
+            "erb-format",
+            "--print-width",
+            "120",
+            "--stdin"
+          ]
+        }
+      }
+    },
+    "Ruby": {
+      "language_servers": [
+        "ruby-lsp",
+        "tailwindcss-language-server",
+        "!solargraph"
+      ],
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bin/bundle",
+          "arguments": [
+            "exec",
+            "rubocop",
+            "--server",
+            "--fail-level",
+            "error",
+            "--autocorrect",
+            "--stdin",
+            "corrected.rb",
+            "--stderr"
+          ]
+        }
+      }
+    },
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    }
+  },
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "includeLanguages": {
+          "erb": "html",
+          "ruby": "html"
+        },
+        "experimental": {
+          "classRegex": ["\\bclass:\\s*['\"]([^'\"]*)['\"]"]
+        }
+      }
+    }
   }
 }

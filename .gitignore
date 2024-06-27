@@ -1,3 +1,4 @@
 zed/embeddings
 zed/conversations
 zed/prompts
+.tmp*

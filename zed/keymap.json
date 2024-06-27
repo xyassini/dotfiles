@@ -6,6 +6,8 @@
       "ctrl-ü": "pane::SplitLeft",
       "ctrl-ß": "pane::SplitUp",
       "ctrl-ä": "pane::SplitDown",
+      "shift-down": ["workspace::SendKeystrokes", "ctrl-d"],
+      "shift-up": ["workspace::SendKeystrokes", "ctrl-u"],
       "+": ["workspace::ActivatePaneInDirection", "Right"],
       "ü": ["workspace::ActivatePaneInDirection", "Left"],
       "ß": ["workspace::ActivatePaneInDirection", "Up"],
