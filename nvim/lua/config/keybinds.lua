@@ -48,7 +48,7 @@ nmap("<leader>g", "<cmd>LazyGit<CR>")
 nmap("<leader>r", ":%s//g<left><left>")
 
 -- Format code
-nmap("ö", "<cmd>lua vim.lsp.buf.format()<CR>")
+nmap("ö", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR>")
 
 -- Search and Replace
 nmap(",", "<cmd>lua require('ssr').open()<CR>")

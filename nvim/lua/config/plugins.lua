@@ -176,6 +176,14 @@ return {
     end,
   },
 
+  {
+    "nvimtools/none-ls.nvim",
+    event = "BufReadPost",
+    config = function()
+      require("plugins.lsp.none-ls")
+    end,
+  },
+
   ----------------------
   -- Autocomplete
   ----------------------

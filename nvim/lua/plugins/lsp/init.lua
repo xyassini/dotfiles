@@ -25,7 +25,6 @@ local default_language_servers = {
   "cssls",
   "graphql",
   "html",
-  "tailwindcss",
   "angularls",
   "dockerls",
   "vimls",
@@ -41,6 +40,13 @@ for _, server in ipairs(default_language_servers) do
     on_attach = on_attach
   })
 end
+
+lspconfig.tailwindcss.setup({
+  handlers = handlers,
+  capabilities = capabilities,
+  on_attach = on_attach,
+  init_options = require("plugins.lsp.servers.tailwindcss").init_options
+})
 
 lspconfig.tsserver.setup({
   handlers = handlers,
