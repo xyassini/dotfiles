@@ -188,6 +188,18 @@ return {
       require("plugins.lsp.none-ls")
     end,
   },
+  {
+    "pmizio/typescript-tools.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    ft = { "typescript", "typescriptreact", "svelte" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("plugins.lsp.typescript-tools")
+    end,
+  },
 
   ----------------------
   -- Autocomplete

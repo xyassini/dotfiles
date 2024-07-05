@@ -51,6 +51,7 @@ M.settings = {
         ["unused"] = "Opened",
       },
       unusedLocalExclude = { "_*" },
+      globals = { "vim", "love" }
     },
     format = {
       enable = true,

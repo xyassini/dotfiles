@@ -1,7 +1,8 @@
+require("plugins.lsp.diagnostics")
+
+local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-local capabilities = cmp_nvim_lsp.default_capabilities()
 
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -14,77 +15,81 @@ local handlers = {
   ),
 }
 
-local on_attach = function(_, bufnr)
+local function on_attach(client, bufnr)
   require("lsp_signature").on_attach({}, bufnr)
 end
 
-local default_language_servers = {
-  "emmet_ls",
-  "bashls",
-  "clangd",
-  "cssls",
-  "graphql",
-  "html",
-  "angularls",
-  "dockerls",
-  "vimls",
-  "svelte",
-  "astro",
-  "ruby_lsp"
-}
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
-for _, server in ipairs(default_language_servers) do
-  lspconfig[server].setup({
-    handlers = handlers,
-    capabilities = capabilities,
-    on_attach = on_attach
-  })
-end
+mason_lspconfig.setup_handlers({
+  function(server_name)
+    require("lspconfig")[server_name].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      handlers = handlers,
+    }
+  end,
 
-lspconfig.tailwindcss.setup({
-  handlers = handlers,
-  capabilities = capabilities,
-  on_attach = on_attach,
-  init_options = require("plugins.lsp.servers.tailwindcss").init_options
+  ["tsserver"] = function()
+    -- Skip since we use typescript-tools.nvim
+  end,
+
+  ["tailwindcss"] = function()
+    lspconfig.tailwindcss.setup({
+      handlers = handlers,
+      capabilities = capabilities,
+      on_attach = on_attach,
+      init_options = require("plugins.lsp.servers.tailwindcss").init_options
+    })
+  end,
+
+  ["eslint"] = function()
+    lspconfig.eslint.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = require("plugins.lsp.servers.eslint").on_attach,
+      settings = require("plugins.lsp.servers.eslint").settings,
+    })
+  end,
+
+
+  ["jsonls"] = function()
+    lspconfig.jsonls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = on_attach,
+      settings = require("plugins.lsp.servers.jsonls").settings,
+    })
+  end,
+
+  ["lua_ls"] = function()
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = on_attach,
+      settings = require("plugins.lsp.servers.lua_ls").settings,
+    })
+  end,
+
+  ["cssls"] = function()
+    lspconfig.cssls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      on_attach = require("plugins.lsp.servers.cssls").on_attach,
+      settings = require("plugins.lsp.servers.cssls").settings,
+    })
+  end,
+
+  ["yamlls"] = function()
+    lspconfig.yamlls.setup({
+      handlers = handlers,
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = require("plugins.lsp.servers.yamlls").settings
+    })
+  end,
 })
 
-lspconfig.tsserver.setup({
-  handlers = handlers,
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = require("plugins.lsp.servers.tsserver").settings
-})
-
-lspconfig.eslint.setup({
-  on_attach = require("plugins.lsp.servers.eslint").on_attach,
-  handlers = handlers,
-  capabilities = capabilities,
-  settings = require("plugins.lsp.servers.eslint").settings
-})
-
-lspconfig.yamlls.setup({
-  handlers = handlers,
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = require("plugins.lsp.servers.yamlls").settings
-})
-
-lspconfig.lua_ls.setup({
-  handlers = handlers,
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = require("plugins.lsp.servers.lua_ls").settings
-})
-
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<leader>,', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>b', vim.diagnostic.goto_prev)
-vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -113,3 +118,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+
