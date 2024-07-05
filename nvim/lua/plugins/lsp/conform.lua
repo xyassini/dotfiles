@@ -10,6 +10,7 @@ require("conform").setup({
     typescript = { { "prettierd", "prettier" } },
     css = { { "prettierd", "prettier" } },
     html = { { "prettierd", "prettier" } },
+    mjml = { { "prettierd", "prettier" } },
     svelte = { { "prettierd", "prettier" } },
     astro = { { "prettierd", "prettier" } },
   },

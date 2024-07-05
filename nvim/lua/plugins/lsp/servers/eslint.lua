@@ -33,7 +33,7 @@ M.settings = {
   validate = "on",
   workingDirectory = {
     mode = "location"
-  }
+  },
 }
 
 return M

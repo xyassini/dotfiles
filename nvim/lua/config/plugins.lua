@@ -103,6 +103,11 @@ return {
     end,
   },
 
+  {
+    "amadeus/vim-mjml",
+    ft = { "mjml" },
+  },
+
   ----------------------
   -- Language Server
   ----------------------
