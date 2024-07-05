@@ -1,9 +1,10 @@
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local copilot_cmp_comparators = require("copilot_cmp.comparators")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -50,6 +51,15 @@ local buffer_option = {
     return vim.tbl_keys(bufs)
   end,
 }
+
+local function deprioritize_snippet(entry1, entry2)
+  if entry1:get_kind() == cmp.types.lsp.CompletionItemKind.Snippet then
+    return false
+  end
+  if entry2:get_kind() == cmp.types.lsp.CompletionItemKind.Snippet then
+    return true
+  end
+end
 
 local kind_icons = {
   Text = "",
@@ -109,7 +119,7 @@ cmp.setup({
   },
 
   formatting = {
-    fields = {'menu', 'abbr', 'kind'},
+    fields = { 'menu', 'abbr', 'kind' },
     format = function(entry, vim_item)
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
       vim_item.menu = ({
@@ -129,23 +139,34 @@ cmp.setup({
   },
 
   sources = {
-    { name = "nvim_lsp", max_item_count = 5, entry_filter = limit_lsp_types },
-    { name = "buffer", max_item_count = 3, option = buffer_option },
-    { name = "copilot", max_item_count = 3 },
-    { name = "luasnip", max_item_count = 2 },
-    { name = "path", max_item_count = 2 },
-    { name = "nvim_lua" },
+    { name = "nvim_lsp", priority = 11, max_item_count = 15, entry_filter = limit_lsp_types },
+    { name = "copilot",  priority = 10, max_item_count = 3 },
+    { name = "luasnip",  priority = 7,  max_item_count = 5 },
+    {
+      name = "buffer",
+      priority = 7,
+      keyword_length = 5,
+      max_item_count = 10,
+      option = buffer_option
+    },
+    { name = "nvim_lua", priority = 5 },
+    { name = "path",     priority = 4 },
   },
 
   sorting = {
     comparators = {
-      cmp.config.compare.exact,
-      cmp.config.compare.locality,
-      cmp.config.compare.score,
-      cmp.config.compare.recently_used,
-      cmp.config.compare.offset,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.order,
+      priority_weight = 2,
+      comparators = {
+        deprioritize_snippet,
+        copilot_cmp_comparators.prioritize or function() end,
+        cmp.config.compare.exact,
+        cmp.config.compare.locality,
+        cmp.config.compare.score,
+        cmp.config.compare.recently_used,
+        cmp.config.compare.offset,
+        cmp.config.compare.sort_text,
+        cmp.config.compare.order,
+      },
     },
   }
 })
