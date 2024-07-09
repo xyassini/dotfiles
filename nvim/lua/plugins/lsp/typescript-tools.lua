@@ -12,6 +12,7 @@ local handlers = {
 }
 
 require("typescript-tools").setup({
+  -- filetypes = { "typescriptreact", "typescript", "svelte" },
   on_attach = function(client, bufnr)
     -- Enable inlay hints
     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })

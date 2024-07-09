@@ -144,9 +144,9 @@ cmp.setup({
     { name = "luasnip",  priority = 7,  max_item_count = 5 },
     {
       name = "buffer",
-      priority = 7,
+      priority = 2,
       keyword_length = 5,
-      max_item_count = 10,
+      max_item_count = 1,
       option = buffer_option
     },
     { name = "nvim_lua", priority = 5 },

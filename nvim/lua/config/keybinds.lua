@@ -39,6 +39,7 @@ nmap("<leader>g", "<cmd>LazyGit<CR>")
 ---------------------
 --nmap("<C-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 --imap("<C-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+nmap("<leader>i", "<cmd>TSToolsAddMissingImports<CR>")
 
 
 ---------------------
