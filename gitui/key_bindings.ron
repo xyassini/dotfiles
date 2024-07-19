@@ -1,0 +1,5 @@
+(
+    push: Some(( code: Char('P') )),
+    pull: Some(( code: Char('p') )),
+    force_push: Some(( code: Char('p'), modifiers: "CONTROL" ))
+)
