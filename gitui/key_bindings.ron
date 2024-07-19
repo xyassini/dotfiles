@@ -1,5 +1,5 @@
 (
-    push: Some(( code: Char('P') )),
-    pull: Some(( code: Char('p') )),
-    force_push: Some(( code: Char('p'), modifiers: "CONTROL" ))
+    push: Some(( code: Char('P'), modifiers: "SHIFT" )),
+    pull: Some(( code: Char('p'), modifiers: "" )),
+    force_push: Some(( code: Char('p'), modifiers: "CONTROL" )),
 )
