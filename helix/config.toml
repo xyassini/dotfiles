@@ -1,0 +1,70 @@
+theme = "tokyoblack"
+
+[editor]
+auto-pairs = true
+line-number = "relative"
+mouse = true
+cursorline = true
+completion-timeout = 5
+bufferline = "never"
+popup-border = "all"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["spinner", "mode", "file-name"]
+center = []
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+enable = true
+display-inlay-hints = true
+
+[editor.auto-save]
+after-delay.enable = true
+after-delay.timeout = 500
+
+# Keybinds
+[keys.normal]
+g = { g = "goto_file_start" }
+G = "goto_file_end"
+"$" = "goto_line_end"
+"0" = "goto_line_start"
+"+" = "jump_view_right"
+"ü" = "jump_view_left"
+"ß" = "jump_view_up"
+"ä" = "jump_view_down"
+"C-+" = ["vsplit", "file_picker"]
+"C-ü" = ["vsplit", "jump_view_left", "file_picker"]
+"C-ä" = ["hsplit", "file_picker"]
+"C-ß" = ["hsplit", "jump_view_up", "file_picker"]
+"C-p" = ["file_picker"]
+"C-b" = ["buffer_picker"]
+t = { c = "toggle_comments", C = "toggle_block_comments" }
+y = { y = ["extend_to_line_bounds", "yank_to_clipboard"] }
+p = "paste_clipboard_after"
+P = "paste_clipboard_before"
+d = { d = ["extend_to_line_bounds", "delete_selection"] }
+V = ["extend_to_line_bounds", "select_mode"]
+x = "delete_selection"
+"S-up" = "page_cursor_half_up"
+"S-down" = "page_cursor_half_down"
+"S-right" = "move_next_long_word_start"
+"S-left" = "page_cursor_half_down"
+"C-r" = "redo"
+
+[keys.select]
+"$" = "goto_line_end"
+"0" = "goto_line_start"
+g = { g = "goto_file_start" }
+G = "goto_file_end"

@@ -1,0 +1,50 @@
+[language-server.angular]
+command = "ngserver"
+args = ["--stdio", "--tsProbeLocations", "$(npm -g root)", "--ngProbeLocations", "$(npm -g root)"]
+
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.eslint.config]
+validate = "on"
+experimental = { useFlatConfig = false }
+rulesCustomizations = []
+run = "onType"
+problems = { shortenToSingleLine = false }
+nodePath = ""
+
+[language-server.eslint.config.codeAction]
+[language-server.eslint.config.codeAction.disableRuleComment]
+enable = true
+location = "separateLine"
+
+[language-server.eslint.config.codeAction.showDocumentation]
+enable = true
+
+[language-server.eslint.config.codeActionOnSave]
+enable = true
+mode = "fixAll"
+
+[language-server.eslint.config.workingDirectory]
+mode = "location"
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = [
+  "--write",
+  "--parser",
+  "typescript",
+] }
+auto-format = true
+language-servers = ["typescript-language-server", "angular", "eslint"]
+
+[[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--write", "--parser", "html"] }
+auto-format = true
+language-servers = ["vscode-html-language-server", "angular", "eslint"]
