@@ -48,3 +48,6 @@ name = "html"
 formatter = { command = 'prettier', args = ["--write", "--parser", "html"] }
 auto-format = true
 language-servers = ["vscode-html-language-server", "angular", "eslint"]
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
