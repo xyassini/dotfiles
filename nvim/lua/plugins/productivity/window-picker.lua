@@ -5,6 +5,7 @@ return {
   version = '2.*',
   opts = {
     hint = 'statusline-winbar',
+    selection_chars = 'ABCDEFGHIJKLMNOP',
     highlights = {
       statusline = {
         focused = {
