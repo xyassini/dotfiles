@@ -10,6 +10,11 @@ return {
   opts = {
     auto_clean_after_session_restore = true,
     popup_border_style = "rounded",
+    window = {
+      mappings = {
+        ["<CR>"] = "open_with_window_picker"
+      },
+    },
     filesystem = {
       hijack_netrw_behavior = "disabled",
       use_libuv_file_watcher = true,
