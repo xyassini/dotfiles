@@ -2,3 +2,4 @@ zed/embeddings
 zed/conversations
 zed/prompts
 .tmp*
+.DS_Store

@@ -15,5 +15,6 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 vim.api.nvim_set_option("clipboard", "unnamed")
