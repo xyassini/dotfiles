@@ -8,40 +8,26 @@ which_key.add({
     mode = { "n" },
 
     -- Pane switching
-    { "+",         "<C-w>l",                                          desc = "Go to right pane" },
-    { "ü",         "<C-w>h",                                          desc = "Go to left pane" },
-    { "ä",         "<C-w>j",                                          desc = "Go to below pane" },
-    { "ß",         "<C-w>k",                                          desc = "Go to above pane" },
+    { "+",         "<C-w>l",                                                    desc = "Go to right pane" },
+    { "ü",         "<C-w>h",                                                    desc = "Go to left pane" },
+    { "ä",         "<C-w>j",                                                    desc = "Go to below pane" },
+    { "ß",         "<C-w>k",                                                    desc = "Go to above pane" },
 
     -- Pane splitting
-    { "<C-+>",     "<cmd>:vs<CR><C-w>l<cmd>Telescope find_files<CR>", desc = "Split pane right and open file picker" },
-    { "<C-ü>",     "<cmd>:vs<CR><C-w>h<cmd>Telescope find_files<CR>", desc = "Split pane left and open file picker" },
-    { "<C-ä>",     "<cmd>:sp<CR><C-w>j<cmd>Telescope find_files<CR>", desc = "Split pane below and open file picker" },
-    { "<C-ß>",     "<cmd>:sp<CR><C-w>k<cmd>Telescope find_files<CR>", desc = "Split pane above and open file picker" },
+    { "<C-+>",     "<cmd>:vs<CR><C-w>l<cmd>Telescope find_files<CR>",           desc = "Split pane right and open file picker" },
+    { "<C-ü>",     "<cmd>:vs<CR><C-w>h<cmd>Telescope find_files<CR>",           desc = "Split pane left and open file picker" },
+    { "<C-ä>",     "<cmd>:sp<CR><C-w>j<cmd>Telescope find_files<CR>",           desc = "Split pane below and open file picker" },
+    { "<C-ß>",     "<cmd>:sp<CR><C-w>k<cmd>Telescope find_files<CR>",           desc = "Split pane above and open file picker" },
 
     -- Navigation
-    { "<C-p>",     "<cmd>Telescope find_files<CR>",                   desc = "Open file picker" },
-    { "<C-f>",     "<cmd>Telescope live_grep<CR>",                    desc = "Search in all files" },
-    { "<C-b>",     "<cmd>Telescope buffers<CR>",                      desc = "Open buffer file picker" },
-    { "<C-g>",     "<cmd>Telescope git_status<CR>",                   desc = "Open staged file picker" },
-    { "<leader>e", "<cmd>Neotree toggle<CR>",                         desc = "Toggle Neotree" },
+    { "<C-p>",     "<cmd>Telescope find_files<CR>",                             desc = "Open file picker" },
+    { "<C-f>",     "<cmd>Telescope live_grep<CR>",                              desc = "Search in all files" },
+    { "<C-b>",     "<cmd>Telescope buffers<CR>",                                desc = "Open buffer file picker" },
+    { "<C-g>",     "<cmd>Telescope git_status<CR>",                             desc = "Open staged file picker" },
+    { "<leader>e", "<cmd>Neotree toggle<CR>",                                   desc = "Toggle Neotree" },
 
     -- Other.nvim
-    { "<leader>o", "<cmd>Other<CR>",                                  desc = "Open related file" },
-
-    -- Language servers
-    { "<leader>i", "<cmd>TSToolsAddMissingImports<CR>",               desc = "Add missing imports" },
-    {
-      "ö",
-      function()
-        require("conform").format({
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 5000
-        })
-      end,
-      desc = "Format current buffer"
-    },
+    { "<leader>o", "<cmd>Other<CR>",                                            desc = "Open related file" },
 
     -- Text manipulation
     { "<leader>r", ":%s//g<left><left>",                                        desc = "Regex search and replace in file" },
@@ -50,13 +36,14 @@ which_key.add({
     -- Productivity
     { "<leader>?", function() require("which-key").show({ global = true }) end, desc = "Show keymaps" },
     { "<leader>d", "<cmd>Neogen<CR>",                                           desc = "Generate annotation" },
+    { "<leader>g", "<cmd>Neogit<CR>",                                           desc = "Open Neogit" },
 
     -- Flash.nvim / Search label navigation
-    { "s",     function() require("flash").jump() end,              desc = "Flash",               mode = { "n", "x", "o" } },
-    { "S",     function() require("flash").treesitter() end,        desc = "Flash Treesitter",    mode = { "n", "x", "o" } },
-    { "r",     function() require("flash").remote() end,            desc = "Remote Flash",        mode = "o" },
-    { "R",     function() require("flash").treesitter_search() end, desc = "Treesitter Search",   mode = { "o", "x" } },
-    { "<c-s>", function() require("flash").toggle() end,            desc = "Toggle Flash Search", mode = { "c" } },
+    { "s",         function() require("flash").jump() end,                      desc = "Flash",                                mode = { "n", "x", "o" } },
+    { "S",         function() require("flash").treesitter() end,                desc = "Flash Treesitter",                     mode = { "n", "x", "o" } },
+    { "r",         function() require("flash").remote() end,                    desc = "Remote Flash",                         mode = "o" },
+    { "R",         function() require("flash").treesitter_search() end,         desc = "Treesitter Search",                    mode = { "o", "x" } },
+    { "<c-s>",     function() require("flash").toggle() end,                    desc = "Toggle Flash Search",                  mode = { "c" } },
 
 
     -- Testing
@@ -104,6 +91,19 @@ which_key.add({
 
 
     -- LSP
+    { "<leader>i", "<cmd>TSToolsAddMissingImports<CR>", desc = "Add missing imports" },
+    {
+      "ö",
+      function()
+        require("conform").format({
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 5000
+        })
+      end,
+      desc = "Format current buffer"
+    },
+
     {
       "gD",
       function()
