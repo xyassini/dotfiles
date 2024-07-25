@@ -22,11 +22,11 @@ return {
       ---LHS of extra mappings
       extra = {
         ---Add comment on the line above
-        above = 'gcO',
+        above = 'cO',
         ---Add comment on the line below
-        below = 'gco',
+        below = 'co',
         ---Add comment at the end of line
-        eol = 'gcA',
+        eol = 'cA',
       },
     })
   end
