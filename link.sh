@@ -15,7 +15,7 @@ mkdir -p "$HOME/.config/helix_bak"
 mv "$HOME/.config/helix" "$HOME/.config/helix_bak"
 ln -s "$(pwd)/helix" "$HOME/.config"
 
-# gitui 
+# gitui
 mkdir -p "$HOME/.config/gitui_bak"
 mv "$HOME/.config/gitui" "$HOME/.config/gitui_bak"
 ln -s "$(pwd)/gitui" "$HOME/.config"
@@ -24,6 +24,11 @@ ln -s "$(pwd)/gitui" "$HOME/.config"
 mkdir -p "$HOME/.config/zed_bak"
 mv "$HOME/.config/zed" "$HOME/.config/zed_bak"
 ln -s "$(pwd)/zed" "$HOME/.config"
+
+# Kitty
+mkdir -p "$HOME/.config/kitty_bak"
+mv "$HOME/.config/kitty" "$HOME/.config/kitty_bak"
+ln -s "$(pwd)/kitty" "$HOME/.config"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # iTerm2
