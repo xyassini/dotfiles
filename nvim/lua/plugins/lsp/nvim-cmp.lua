@@ -74,11 +74,11 @@ return {
         end, { "i", "s", "c", })
       }),
       sources = cmp.config.sources({
-        { name = "copilot", group_index = 2 },
+        { name = "copilot", max_item_count = 2, group_index = 2 },
         { name = 'nvim_lsp' },
+        { name = 'lazydev', group_index = 0 },
         { name = 'luasnip' },
-      }, {
-        { name = 'buffer' },
+        { name = 'buffer',  max_item_count = 2 },
       })
     })
 

@@ -13,4 +13,8 @@ require("mason-lspconfig").setup_handlers({
   ["tsserver"] = function()
     -- Skip since we use typescript-tools.nvim
   end,
+
+  ["rust_analyzer"] = function()
+    -- Skip since we use rustaceanvim
+  end,
 })
