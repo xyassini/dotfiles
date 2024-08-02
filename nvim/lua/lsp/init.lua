@@ -17,4 +17,11 @@ require("mason-lspconfig").setup_handlers({
   ["rust_analyzer"] = function()
     -- Skip since we use rustaceanvim
   end,
+
+  ["tailwindcss"] = function()
+    require("lspconfig").tailwindcss.setup({
+      capabilities = capabilities,
+      root_dir = require("lspconfig/util").root_pattern("tailwind.config.{js,ts,mjs,cjs}"),
+    })
+  end,
 })

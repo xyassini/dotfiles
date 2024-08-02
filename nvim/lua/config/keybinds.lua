@@ -36,7 +36,7 @@ which_key.add({
     -- Productivity
     { "<leader>?", function() require("which-key").show({ global = true }) end, desc = "Show keymaps" },
     { "<leader>d", "<cmd>Neogen<CR>",                                           desc = "Generate annotation" },
-    { "<leader>g", "<cmd>Neogit<CR>",                                           desc = "Open Neogit" },
+    { "<leader>g", "<cmd>LazyGit<CR>",                                          desc = "Open Lazygit" },
 
     -- Flash.nvim / Search label navigation
     { "s",         function() require("flash").jump() end,                      desc = "Flash",                                mode = { "n", "x", "o" } },
