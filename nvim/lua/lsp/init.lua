@@ -24,4 +24,20 @@ require("mason-lspconfig").setup_handlers({
       root_dir = require("lspconfig/util").root_pattern("tailwind.config.{js,ts,mjs,cjs}"),
     })
   end,
+
+  ["eslint"] = function()
+    require("lspconfig").eslint.setup({
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "html", "json" },
+    })
+  end,
+
+  ["ruby_lsp"] = function()
+    require("lspconfig").ruby_lsp.setup({
+      capabilities = capabilities,
+      init_options = {
+        formatter = "rubocop",
+        linters = { "rubocop" }
+      }
+    })
+  end,
 })
