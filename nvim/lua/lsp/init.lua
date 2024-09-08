@@ -11,6 +11,11 @@ require("mason-lspconfig").setup_handlers({
   end,
 
   ["tsserver"] = function()
+    -- Deprecated
+    -- Skip since we use typescript-tools.nvim
+  end,
+
+  ["ts_ls"] = function()
     -- Skip since we use typescript-tools.nvim
   end,
 
