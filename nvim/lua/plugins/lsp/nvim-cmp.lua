@@ -6,6 +6,8 @@ return {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-calc",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "zbirenbaum/copilot.lua",
@@ -22,9 +24,6 @@ return {
     require("copilot_cmp").setup()
 
     cmp.setup({
-      -- formatting = {
-      -- format = require("nvim-highlight-colors").format
-      -- },
       snippet = {
         expand = function(args)
           require('luasnip').lsp_expand(args.body)
@@ -39,6 +38,7 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       formatting = {
+        expandable_indicator = true,
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
           local kind = require("lspkind").cmp_format({
@@ -74,12 +74,22 @@ return {
         end, { "i", "s", "c", })
       }),
       sources = cmp.config.sources({
-        { name = "copilot", max_item_count = 2, group_index = 2 },
-        { name = 'nvim_lsp' },
-        { name = 'lazydev', group_index = 0 },
-        { name = 'luasnip' },
-        { name = 'buffer',  max_item_count = 2 },
-      })
+        { name = 'nvim_lsp_signature_help', group_index = 1 },
+        { name = "copilot",                 max_item_count = 2, group_index = 2 },
+        { name = 'nvim_lsp',                group_index = 1 },
+        { name = 'calc',                    group_index = 1 },
+        { name = 'lazydev',                 group_index = 1 },
+        { name = 'luasnip',                 group_index = 1 },
+        { name = 'buffer',                  max_item_count = 2, keyword_length = 2 },
+      }),
+      performance = {
+        debounce = 0,
+        throttle = 0,
+        fetching_timeout = 20,
+        confirm_resolve_timeout = 20,
+        async_budget = 1,
+        max_view_entries = 50
+      }
     })
 
     cmp.setup.cmdline({ '/', '?' }, {
