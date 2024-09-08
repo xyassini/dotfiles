@@ -7,12 +7,15 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-calc",
+    "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-signature-help",
+    "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "zbirenbaum/copilot.lua",
     "zbirenbaum/copilot-cmp",
-    "onsails/lspkind.nvim"
+    "David-Kunz/cmp-npm",
+    "onsails/lspkind.nvim",
   },
   config = function()
     local cmp = require("cmp")
@@ -23,10 +26,12 @@ return {
 
     require("copilot_cmp").setup()
 
+    require("cmp-npm").setup({})
+
     cmp.setup({
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body)
+          require("luasnip").lsp_expand(args.body)
         end,
       },
       window = {
@@ -44,7 +49,7 @@ return {
           local kind = require("lspkind").cmp_format({
             mode = "symbol_text",
             maxwidth = 50,
-            symbol_map = { Copilot = "" }
+            symbol_map = { Copilot = "" },
           })(entry, vim_item)
           local strings = vim.split(kind.kind, "%s", { trimempty = true })
 
@@ -55,10 +60,10 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
         -- ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<Tab>"] = cmp.mapping(function(fallback)
           -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
@@ -71,16 +76,32 @@ return {
           else
             fallback()
           end
-        end, { "i", "s", "c", })
+        end, { "i", "s", "c" }),
       }),
       sources = cmp.config.sources({
-        { name = 'nvim_lsp_signature_help', group_index = 1 },
-        { name = "copilot",                 max_item_count = 2, group_index = 2 },
-        { name = 'nvim_lsp',                group_index = 1 },
-        { name = 'calc',                    group_index = 1 },
-        { name = 'lazydev',                 group_index = 1 },
-        { name = 'luasnip',                 group_index = 1 },
-        { name = 'buffer',                  max_item_count = 2, keyword_length = 2 },
+        { name = "nvim_lsp_signature_help", group_index = 1 },
+        { name = "nvim_lsp", group_index = 1 },
+        { name = "copilot", max_item_count = 2, group_index = 2 },
+        { name = "calc", group_index = 1 },
+        { name = "path", group_index = 1 },
+        { name = "lazydev", group_index = 1 },
+        { name = "luasnip", group_index = 1 },
+        { name = "npm" },
+        -- {
+        --   name = "buffer",
+        --   max_item_count = 2,
+        --   keyword_length = 2,
+        --   option = {
+        --     get_bufnrs = function()
+        --       local buf = vim.api.nvim_get_current_buf()
+        --       local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
+        --       if byte_size > 1024 * 1024 then -- 1 Megabyte max
+        --         return {}
+        --       end
+        --       return { buf }
+        --     end,
+        --   },
+        -- },
       }),
       performance = {
         debounce = 0,
@@ -88,33 +109,32 @@ return {
         fetching_timeout = 20,
         confirm_resolve_timeout = 20,
         async_budget = 1,
-        max_view_entries = 50
-      }
+        max_view_entries = 50,
+      },
     })
 
-    cmp.setup.cmdline({ '/', '?' }, {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' }
-      }
-    })
-
-    cmp.setup.cmdline(':', {
+    cmp.setup.cmdline({ "/", "?" }, {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = 'path' }
+        { name = "nvim_lsp_document_symbol" },
       }, {
-        { name = 'cmdline' }
+        { name = "buffer" },
       }),
-      matching = { disallow_symbol_nonprefix_matching = false }
+    })
+
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
+      }),
+      matching = { disallow_symbol_nonprefix_matching = false },
     })
 
     -- Auto insert `(` after function/method keyword
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done()
-    )
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
     vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282C34", fg = "NONE" })
     vim.api.nvim_set_hl(0, "Pmenu", { fg = "#22252A" })
@@ -158,5 +178,5 @@ return {
     vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#58B5A8" })
 
     vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-  end
+  end,
 }
