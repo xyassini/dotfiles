@@ -37,6 +37,7 @@ which_key.add({
     { "<leader>?", function() require("which-key").show({ global = true }) end, desc = "Show keymaps" },
     { "<leader>d", "<cmd>Neogen<CR>",                                           desc = "Generate annotation" },
     { "<leader>g", "<cmd>LazyGit<CR>",                                          desc = "Open Lazygit" },
+    { "<leader>l", "<cmd>Logsitter<CR>",                                        desc = "Add logging statement" },
 
     -- Flash.nvim / Search label navigation
     { "s",         function() require("flash").jump() end,                      desc = "Flash",                                mode = { "n", "x", "o" } },
@@ -168,7 +169,11 @@ which_key.add({
       end,
       desc = "Show references to symbol under cursor"
     }
+  },
+  {
+    mode = { "v" },
 
+    { "<leader>l", "<cmd>LogsitterV<CR>", desc = "Add logging statement" },
   }
 })
 
