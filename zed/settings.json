@@ -7,7 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Ayu Dark",
+  "theme": "Tokyo Night",
   "autosave": "on_focus_change",
   "format_on_save": "off",
   "buffer_font_size": 12,
@@ -27,7 +27,12 @@
     "json": [".prettierrc"]
   },
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": false,
+    "show_other_hints": true,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50
   },
   "tab_bar": {
     "show": false
@@ -42,13 +47,7 @@
       "formatter": {
         "external": {
           "command": "bin/bundle",
-          "arguments": [
-            "exec",
-            "erb-format",
-            "--print-width",
-            "120",
-            "--stdin"
-          ]
+          "arguments": ["exec", "erb-format", "--print-width", "120", "--stdin"]
         }
       }
     },

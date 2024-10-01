@@ -2,10 +2,14 @@
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      "ctrl-+": "pane::SplitRight",
-      "ctrl-ü": "pane::SplitLeft",
-      "ctrl-ß": "pane::SplitUp",
-      "ctrl-ä": "pane::SplitDown",
+      "alt-+": "pane::SplitRight",
+      "alt-ü": "pane::SplitLeft",
+      "alt-ß": "pane::SplitUp",
+      "alt-ä": "pane::SplitDown",
+      "ctrl-+": ["workspace::SendKeystrokes", "alt-+ ctrl-p"],
+      "ctrl-ü": ["workspace::SendKeystrokes", "alt-ü ctrl-p"],
+      "ctrl-ß": ["workspace::SendKeystrokes", "alt-ß ctrl-p"],
+      "ctrl-ä": ["workspace::SendKeystrokes", "alt-ä ctrl-p"],
       "shift-down": ["workspace::SendKeystrokes", "ctrl-d"],
       "shift-up": ["workspace::SendKeystrokes", "ctrl-u"],
       "+": ["workspace::ActivatePaneInDirection", "Right"],
@@ -16,9 +20,27 @@
       "space e": "workspace::ToggleLeftDock",
       "ctrl-p": "file_finder::Toggle",
       "ctrl-f": "workspace::NewSearch",
-      "alt-+": "zed::IncreaseBufferFontSize",
+      "alt-,": "zed::IncreaseBufferFontSize",
       "alt--": "zed::DecreaseBufferFontSize",
-      "alt-.": "zed::ResetBufferFontSize"
+      "alt-.": "zed::ResetBufferFontSize",
+      "t c": "editor::ToggleComments",
+      "t t": "workspace::NewCenterTerminal"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      "t c": "editor::ToggleComments"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "+": ["workspace::ActivatePaneInDirection", "Right"],
+      "ü": ["workspace::ActivatePaneInDirection", "Left"],
+      "ß": ["workspace::ActivatePaneInDirection", "Up"],
+      "ä": ["workspace::ActivatePaneInDirection", "Down"],
+      "space e": ["workspace::SendKeystrokes", "+ space e"]
     }
   }
 ]
