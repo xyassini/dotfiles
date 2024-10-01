@@ -23,6 +23,15 @@ require("mason-lspconfig").setup_handlers({
     -- Skip since we use rustaceanvim
   end,
 
+
+  -- Fix for NX monorepos
+  ["angularls"] = function()
+    require("lspconfig").angularls.setup({
+      capabilities = capabilities,
+      root_dir = require("lspconfig/util").root_pattern("angular.json", "project.json"),
+    })
+  end,
+
   ["tailwindcss"] = function()
     require("lspconfig").tailwindcss.setup({
       capabilities = capabilities,
