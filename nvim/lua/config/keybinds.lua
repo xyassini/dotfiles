@@ -215,7 +215,8 @@ which_key.add({
     {
       "<C-Enter>",
       function()
-        vim.lsp.buf.code_action()
+        -- vim.lsp.buf.code_action()
+        require("actions-preview").code_actions()
       end,
       desc = "Show code actions",
       mode = { "n", "v" },
