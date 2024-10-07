@@ -1,6 +1,6 @@
 return {
   "stevearc/conform.nvim",
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
@@ -14,6 +14,7 @@ return {
       mjml = { "prettierd", "prettier", stop_after_first = true },
       svelte = { "prettierd", "prettier", stop_after_first = true },
       astro = { "prettierd", "prettier", stop_after_first = true },
+      swift = { "swiftformat" },
     },
-  }
+  },
 }

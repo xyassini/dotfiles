@@ -1,12 +1,14 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+require("lsp.diagnostics")
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason-lspconfig").setup_handlers({
   function(server_name) -- default handler (optional)
     require("lspconfig")[server_name].setup({
-      capabilities = capabilities
+      capabilities = capabilities,
     })
   end,
 
@@ -22,7 +24,6 @@ require("mason-lspconfig").setup_handlers({
   ["rust_analyzer"] = function()
     -- Skip since we use rustaceanvim
   end,
-
 
   -- Fix for NX monorepos
   ["angularls"] = function()
@@ -50,8 +51,18 @@ require("mason-lspconfig").setup_handlers({
       capabilities = capabilities,
       init_options = {
         formatter = "rubocop",
-        linters = { "rubocop" }
-      }
+        linters = { "rubocop" },
+      },
     })
   end,
 })
+
+require("lspconfig").sourcekit.setup({
+  capabilities = capabilities,
+  on_init = function(client)
+    -- HACK: to fix some issues with LSP
+    -- more details: https://github.com/neovim/neovim/issues/19237#issuecomment-2237037154
+    client.offset_encoding = "utf-8"
+  end,
+})
+
