@@ -1,15 +1,18 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
+  "dlvandenberg/nvim-treesitter",
   build = ":TSUpdate",
   event = "VeryLazy",
+  dependencies = {
+    "dlvandenberg/tree-sitter-angular",
+  },
   config = function()
     -- require("plugins.syntax.treesitter.config")
     require("nvim-treesitter.configs").setup({
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
       auto_install = true,
       highlight = {
-        enable = true
-      }
+        enable = true,
+      },
     })
   end,
 }
