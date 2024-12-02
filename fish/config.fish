@@ -69,4 +69,7 @@ export PATH="$PATH:$HOME/.local/bin"
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
-mise activate fish | source
+
+if type -q mise
+  mise activate fish | source
+end
