@@ -31,6 +31,7 @@ return {
           "^yarn.lock$",
           "^bun.lockb$",
           "^package-lock.json$",
+          "node_modules/",
         },
       },
 

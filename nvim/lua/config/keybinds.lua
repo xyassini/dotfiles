@@ -36,7 +36,9 @@ which_key.add({
     },
 
     -- Navigation
-    { "<C-p>", "<cmd>Telescope find_files<CR>", desc = "Open file picker" },
+    { "<C-p>", function ()
+      require("custom.utils.telescope_hidden_toggle")()
+    end, desc = "Open file picker" },
     { "<C-f>", "<cmd>Telescope live_grep<CR>", desc = "Search in all files" },
     { "<C-b>", "<cmd>Telescope buffers<CR>", desc = "Open buffer file picker" },
     { "<C-g>", "<cmd>Telescope git_status<CR>", desc = "Open staged file picker" },
