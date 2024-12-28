@@ -26,20 +26,22 @@ require("mason-lspconfig").setup_handlers({
   ["angularls"] = function()
     require("lspconfig").angularls.setup({
       capabilities = capabilities,
-      root_dir = util.root_pattern("angular.json", "project.json"),
+      filetypes = { "typescript", "html", "tpescriptreact", "typescript.tsx", "htmlangular" },
+      root_dir = require("lspconfig/util").root_pattern("angular.json", "project.json"),
     })
   end,
 
   ["tailwindcss"] = function()
     require("lspconfig").tailwindcss.setup({
       capabilities = capabilities,
-      root_dir = util.root_pattern("tailwind.config.{js,ts,mjs,cjs}"),
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "html", "htmlangular" },
+      root_dir = require("lspconfig/util").root_pattern("tailwind.config.{js,ts,mjs,cjs}"),
     })
   end,
 
   ["eslint"] = function()
     require("lspconfig").eslint.setup({
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "html", "json" },
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "html", "htmlangular", "json" },
     })
   end,
 

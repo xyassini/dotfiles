@@ -1,13 +1,12 @@
 return {
   "rgroli/other.nvim",
   event = "VeryLazy",
-  opts = {
-    mappings = {
-      "angular",
-      "rails"
-    }
-  },
-  config = function(opts)
-    require("other-nvim").setup(opts)
-  end
+  config = function()
+    require("other-nvim").setup({
+      mappings = {
+        "angular",
+        "rails",
+      },
+    })
+  end,
 }
