@@ -28,14 +28,18 @@ return {
         },
         file_ignore_patterns = {
           ".git/",
-          "^yarn.lock$",
-          "^bun.lockb$",
-          "^package-lock.json$",
+          "yarn.lock",
+          "bun.lockb",
+          "package-lock.json",
           "node_modules/",
         },
       },
+      builtin = {
+        live_grep = {
 
-      require("telescope").load_extension("fzf"),
+        }
+      }
     })
+    require("telescope").load_extension("fzf")
   end,
 }

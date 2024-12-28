@@ -17,7 +17,7 @@ return {
     },
     filesystem = {
       hijack_netrw_behavior = "disabled",
-      use_libuv_file_watcher = true,
+      -- use_libuv_file_watcher = true,
 
       follow_current_file = {
         enabled = true,
