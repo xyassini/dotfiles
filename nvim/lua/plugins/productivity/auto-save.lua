@@ -4,6 +4,17 @@ return {
   opts = {
     enabled = true,
     trigger_events = { "InsertLeave" },
-    debounce_delay = 2000
-  }
+    condition = function()
+      vim.schedule(function()
+        vim.fn.timer_start(500, function()
+          local mode = vim.api.nvim_get_mode().mode
+          if mode ~= "i" then
+            vim.cmd("write")
+          end
+        end)
+      end)
+      return false
+    end,
+    debounce_delay = 2000,
+  },
 }
