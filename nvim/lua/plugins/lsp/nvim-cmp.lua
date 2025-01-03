@@ -22,6 +22,7 @@ return {
     require("copilot").setup({
       suggestion = { enabled = false },
       panel = { enabled = false },
+      copilot_node_command = 'bun'
     })
 
     require("copilot_cmp").setup()
@@ -106,10 +107,10 @@ return {
       performance = {
         debounce = 0,
         throttle = 0,
-        fetching_timeout = 20,
-        confirm_resolve_timeout = 20,
-        async_budget = 1,
-        max_view_entries = 50,
+        fetching_timeout = 50,
+        confirm_resolve_timeout = 50,
+        async_budget = 50,
+        max_view_entries = 20,
       },
     })
 
