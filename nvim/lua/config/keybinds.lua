@@ -35,6 +35,13 @@ which_key.add({
       desc = "Split pane above and open file picker",
     },
 
+    -- Light/Dark Mode
+    {
+      "<leader>tt",
+      "<cmd>lua ToggleTheme()<CR>",
+      desc = "Toggle light/dark mode",
+    },
+
     -- Navigation
     {
       "<C-p>",
