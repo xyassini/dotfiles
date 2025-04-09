@@ -84,7 +84,7 @@ which_key.add({
     { "<leader>d", "<cmd>Neogen<CR>", desc = "Generate annotation" },
     { "<leader>g", "<cmd>LazyGit<CR>", desc = "Open Lazygit" },
     { "<leader>l", "<cmd>Logsitter<CR>", desc = "Add logging statement" },
-    { "<leader>c", "<cmd>Copilot toggle<CR>", desc = "Toggle GitHub Copilot" },
+    -- { "<leader>c", "<cmd>Copilot toggle<CR>", desc = "Toggle GitHub Copilot" },
 
     -- Xcodebuild
     -- vim.keymap.set("n", "<leader>X", "<cmd>XcodebuildPicker<cr>", { desc = "Show Xcodebuild Actions" })
