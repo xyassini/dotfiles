@@ -17,7 +17,10 @@ return {
   ---@type blink.cmp.Config
   opts = {
 
-    cmdline = { enabled = true },
+    cmdline = {
+      enabled = true,
+      completion = { menu = { auto_show = true } },
+    },
     keymap = {
       preset = "default",
 
@@ -42,7 +45,12 @@ return {
       nerd_font_variant = "mono",
     },
 
-    completion = { documentation = { auto_show = true } },
+    completion = {
+      documentation = { auto_show = true },
+      menu = {
+        auto_show = true,
+      },
+    },
 
     sources = {
       default = { "lsp", "path", "supermaven", "snippets", "buffer" },
