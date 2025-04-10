@@ -42,6 +42,18 @@ which_key.add({
       desc = "Toggle light/dark mode",
     },
 
+    -- Code companion
+    {
+      "<leader>cc",
+      "<cmd>CodeCompanionChat Toggle<CR>",
+      desc = "Toggle code companion chat",
+    },
+    {
+      "<leader>ca",
+      "<cmd>CodeCompanionActions<CR>",
+      desc = "Toggle code companion chat",
+    },
+
     -- Navigation
     {
       "<C-p>",
