@@ -7,7 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "Tokyo Night",
+  "theme": "Fleet Dark",
   "autosave": "on_focus_change",
   "format_on_save": "off",
   "buffer_font_size": 12,
@@ -27,15 +27,18 @@
     "json": [".prettierrc"]
   },
   "inlay_hints": {
-    "enabled": true,
-    "show_type_hints": true,
+    "enabled": false,
+    "show_type_hints": false,
     "show_parameter_hints": false,
-    "show_other_hints": true,
-    "edit_debounce_ms": 700,
+    "show_other_hints": false,
+    "edit_debounce_ms": 500,
     "scroll_debounce_ms": 50
   },
   "tab_bar": {
     "show": false
+  },
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.5
   },
   "languages": {
     "ERB": {
@@ -90,13 +93,9 @@
   "lsp": {
     "tailwindcss-language-server": {
       "settings": {
-        "includeLanguages": {
-          "erb": "html",
-          "ruby": "html"
+        "tailwindCSS": {
+          "emmetCompletions": true,
         },
-        "experimental": {
-          "classRegex": ["\\bclass:\\s*['\"]([^'\"]*)['\"]"]
-        }
       }
     }
   }
