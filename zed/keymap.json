@@ -12,10 +12,10 @@
       "ctrl-ä": ["workspace::SendKeystrokes", "alt-ä ctrl-p"],
       "shift-down": ["workspace::SendKeystrokes", "ctrl-d"],
       "shift-up": ["workspace::SendKeystrokes", "ctrl-u"],
-      "+": ["workspace::ActivatePaneInDirection", "Right"],
-      "ü": ["workspace::ActivatePaneInDirection", "Left"],
-      "ß": ["workspace::ActivatePaneInDirection", "Up"],
-      "ä": ["workspace::ActivatePaneInDirection", "Down"],
+      "+": "workspace::ActivatePaneRight",
+      "ü": "workspace::ActivatePaneLeft",
+      "ß": "workspace::ActivatePaneUp",
+      "ä": "workspace::ActivatePaneDown",
       "ö": "editor::Format",
       "space e": "workspace::ToggleLeftDock",
       "ctrl-p": "file_finder::Toggle",
@@ -24,7 +24,9 @@
       "alt--": "zed::DecreaseBufferFontSize",
       "alt-.": "zed::ResetBufferFontSize",
       "t c": "editor::ToggleComments",
-      "t t": "workspace::NewCenterTerminal"
+      "t t": "workspace::NewCenterTerminal",
+      "space g": "git_panel::ToggleFocus",
+      "ctrl-enter": "editor::ToggleCodeActions"
     }
   },
   {
@@ -36,11 +38,47 @@
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "+": ["workspace::ActivatePaneInDirection", "Right"],
-      "ü": ["workspace::ActivatePaneInDirection", "Left"],
-      "ß": ["workspace::ActivatePaneInDirection", "Up"],
-      "ä": ["workspace::ActivatePaneInDirection", "Down"],
+      "n": "project_panel::NewFile",
+      "r": "project_panel::Rename",
+      "d": ["project_panel::Trash", { "skip_prompt": false }],
+      "+": "workspace::ActivatePaneRight",
+      "ü": "workspace::ActivatePaneLeft",
+      "ß": "workspace::ActivatePaneUp",
+      "ä": "workspace::ActivatePaneDown",
       "space e": ["workspace::SendKeystrokes", "+ space e"]
+    }
+  },
+  {
+    "context": "Editor && editor_agent_diff",
+    "bindings": {
+      "cmd-enter": "agent::KeepAll"
+    }
+  },
+  {
+    "context": "AgentDiff",
+    "bindings": {
+      "cmd-enter": "agent::KeepAll"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-l": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "GitPanel && ChangesList",
+    "bindings": {
+      "space": "git::ToggleStaged",
+      "q": "workspace::ToggleLeftDock",
+      "a": "git::StageAll",
+      "c": "git::Commit",
+      "p": "git::Pull",
+      "P": "git::Push",
+      "f": "git::Fetch",
+      "ä": "git::Switch",
+      "d": ["git::RestoreFile", { "skip_prompt": false }],
+      "+": "workspace::ActivatePaneRight"
     }
   }
 ]
