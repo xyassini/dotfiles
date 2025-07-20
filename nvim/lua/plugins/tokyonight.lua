@@ -18,7 +18,7 @@ return {
       colors.bg_highlight = '#222222'
       colors.bg_float = '#000000'
       colors.bg_statusline = '#000000'
-      -- colors.bg_popup
+      colors.border = "#777777"
     end,
     ---@param highlights require('tokyonight').Highlights
     ---@param colors ColorScheme
