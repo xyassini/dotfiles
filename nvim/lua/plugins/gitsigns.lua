@@ -1,8 +1,8 @@
 return {
   'lewis6991/gitsigns.nvim',
-  event = "VeryLazy",
+  event = 'VeryLazy',
   config = function()
-    require("gitsigns").setup({
+    require('gitsigns').setup {
       signs = {
         add = { text = '┃' },
         change = { text = '┃' },
@@ -19,7 +19,11 @@ return {
         virt_text_pos = 'eol',
         delay = 1000,
       },
-    })
-  end
-
+      watch_gitdir = {
+        follow_files = true,
+      },
+      auto_attach = true,
+      attach_to_untracked = false,
+    }
+  end,
 }
