@@ -13,7 +13,7 @@ function _G._statusline_component(name)
 end
 
 function cmp.diagnostic_status()
-  local ok = ' λ '
+  local ok = ' - '
 
   local ignore = {
     ['c'] = true, -- command mode
@@ -29,12 +29,12 @@ function cmp.diagnostic_status()
   local levels = vim.diagnostic.severity
   local errors = #vim.diagnostic.get(0, { severity = levels.ERROR })
   if errors > 0 then
-    return ' ✘ '
+    return hi_pattern:format('DiagnosticVirtualTextError', ' x ')
   end
 
   local warnings = #vim.diagnostic.get(0, { severity = levels.WARN })
   if warnings > 0 then
-    return ' ▲ '
+    return hi_pattern:format('DiagnosticVirtualTextWarn', ' ! ')
   end
 
   return ok
@@ -45,7 +45,7 @@ function cmp.position()
 end
 
 local statusline = {
-  '%{%v:lua._statusline_component("diagnostic_status")%} ',
+  ' %{%v:lua._statusline_component("diagnostic_status")%} ',
   '%t',
   '%r',
   '%m',
