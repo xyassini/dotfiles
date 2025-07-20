@@ -1,18 +1,19 @@
 return {
   'numToStr/Comment.nvim',
   keys = {
-    "tc",
-    "tb",
-    "cO",
-    "co",
-    "cA"
+    'tc',
+    'tb',
+    'cO',
+    'co',
+    'cA',
   },
+  event = 'ModeChanged',
   dependencies = {
-    "JoosepAlviste/nvim-ts-context-commentstring"
+    'JoosepAlviste/nvim-ts-context-commentstring',
   },
   config = function()
     ---@diagnostic disable-next-line: missing-fields
-    require('Comment').setup({
+    require('Comment').setup {
       pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
       toggler = {
         ---Line-comment toggle keymap
@@ -36,6 +37,6 @@ return {
         ---Add comment at the end of line
         eol = 'cA',
       },
-    })
-  end
+    }
+  end,
 }
