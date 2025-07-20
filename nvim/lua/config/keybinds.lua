@@ -123,7 +123,7 @@ which_key.add {
   {
     'ö',
     function()
-      require("conform").format { lsp_fallback = true }
+      require('conform').format { lsp_fallback = true }
     end,
     desc = 'Format Code',
   },
