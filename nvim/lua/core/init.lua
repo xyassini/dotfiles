@@ -1,6 +1,5 @@
 require("config.vim")
 require("core.lazy")
 require("config.keybinds")
-require("lsp")
 require("config.diagnostics")
 require("custom")
