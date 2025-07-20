@@ -123,7 +123,7 @@ which_key.add({
   {
     "ö",
     function()
-      vim.lsp.buf.format()
+      require("conform").format({ lsp_fallback = true })
     end,
     desc = "Format Code"
   },

@@ -2,7 +2,7 @@ vim.diagnostic.config({
   virtual_text = true,
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = 'X',
+      [vim.diagnostic.severity.ERROR] = 'x',
       [vim.diagnostic.severity.WARN] = '!',
     },
     linehl = {
