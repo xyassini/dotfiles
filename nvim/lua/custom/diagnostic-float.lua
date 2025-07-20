@@ -1,7 +1,7 @@
 -- Show diagnostic messages in a floating window when the cursor is held over a line with diagnostics.
 local diagnostic_float_win = nil
 
-vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+vim.api.nvim_create_autocmd({ 'CursorHold' }, {
   group = vim.api.nvim_create_augroup('float_diagnostic', { clear = true }),
   callback = function()
     -- Close previous float if it exists
@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
   end,
 })
 
-vim.api.nvim_create_autocmd('WinLeave', {
+vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
   group = vim.api.nvim_create_augroup('close_diagnostic_float', { clear = true }),
   callback = function()
     if diagnostic_float_win and vim.api.nvim_win_is_valid(diagnostic_float_win) then
