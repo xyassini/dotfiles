@@ -1,10 +1,10 @@
 return {
-  "RRethy/vim-illuminate",
-  event = { "LspAttach", "InsertEnter" },
+  'RRethy/vim-illuminate',
+  event = { 'LspAttach', 'InsertEnter' },
   config = function()
-    require("illuminate").configure({
+    require('illuminate').configure {
       delay = 100,
-      under_cursor = true
-    })
-  end
+      under_cursor = true,
+    }
+  end,
 }
