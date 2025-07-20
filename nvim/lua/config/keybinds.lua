@@ -121,14 +121,6 @@ which_key.add {
 
   -- LSP
   {
-    'ö',
-    function()
-      require('conform').format { lsp_fallback = true }
-    end,
-    desc = 'Format Code',
-  },
-
-  {
     'gd',
     function()
       vim.lsp.buf.definition()

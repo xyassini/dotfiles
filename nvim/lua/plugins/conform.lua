@@ -1,6 +1,14 @@
 return {
   'stevearc/conform.nvim',
-  event = 'LspAttach',
+  keys = {
+    {
+      'ö',
+      function()
+        require('conform').format { lsp_fallback = true }
+      end,
+      desc = 'Format Code',
+    },
+  },
   config = function()
     require('conform').setup {
       formatters_by_ft = {
