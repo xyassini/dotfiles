@@ -1,32 +1,22 @@
 return {
-  'greggh/claude-code.nvim',
+  'coder/claudecode.nvim',
+  dependencies = { 'folke/snacks.nvim' },
+  config = true,
   keys = {
+    { '<leader>c', nil, desc = 'AI/Claude Code' },
+    { '<leader>cc', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude' },
+    { '<leader>cf', '<cmd>ClaudeCodeFocus<cr>', desc = 'Focus Claude' },
+    { '<leader>cr', '<cmd>ClaudeCode --resume<cr>', desc = 'Resume Claude' },
+    { '<leader>cC', '<cmd>ClaudeCode --continue<cr>', desc = 'Continue Claude' },
+    { '<leader>cb', '<cmd>ClaudeCodeAdd %<cr>', desc = 'Add current buffer' },
+    { '<leader>cs', '<cmd>ClaudeCodeSend<cr>', mode = 'v', desc = 'Send to Claude' },
     {
-      mode = 'n', -- Normal and terminal mode
-      '<leader>c', -- Keymap to toggle Claude Code'
+      '<leader>cs',
+      '<cmd>ClaudeCodeTreeAdd<cr>',
+      desc = 'Add file',
+      ft = { 'NvimTree', 'neo-tree', 'oil' },
     },
+    { '<leader>ca', '<cmd>ClaudeCodeDiffAccept<cr>', desc = 'Accept diff' },
+    { '<leader>cd', '<cmd>ClaudeCodeDiffDeny<cr>', desc = 'Deny diff' },
   },
-  cmd = 'ClaudeCode',
-  dependencies = {
-    'nvim-lua/plenary.nvim', -- Required for git operations
-  },
-  config = function()
-    require('claude-code').setup {
-      window = {
-        position = 'float',
-      },
-      keymaps = {
-        toggle = {
-          normal = '<leader>c', -- Normal mode keymap for toggling Claude Code, false to disable
-          terminal = false,
-          variants = {
-            continue = '<C-l>', -- Normal mode keymap for Claude Code with continue flag
-            verbose = '<C-c>', -- Normal mode keymap for Claude Code with verbose flag
-          },
-        },
-        window_navigation = true,
-        scrolling = true,
-      },
-    }
-  end,
 }
