@@ -1,13 +1,15 @@
 return {
   'numToStr/Comment.nvim',
   keys = {
-    'tc',
-    'tb',
-    'cO',
-    'co',
-    'cA',
+    {
+      mode = { 'n', 'v', 'x' },
+      'tc',
+      'tb',
+      'cO',
+      'co',
+      'cA',
+    },
   },
-  event = 'ModeChanged',
   dependencies = {
     'JoosepAlviste/nvim-ts-context-commentstring',
   },
