@@ -14,8 +14,6 @@ alias p "bunx gitprompt@latest -y -t 1000000 && git push"
 alias c "bunx gitprompt@latest -y -t 1000000"
 alias cc "bunx gitprompt@latest"
 
-pyenv init - fish | source
-
 # nodenv
 status --is-interactive; and source (nodenv init -|psub)
 
@@ -68,7 +66,6 @@ set -g fish_pager_color_description $comment
 set -g fish_pager_color_selected_background --background=$selection
 
 
-
 export PATH="$PATH:$HOME/.local/bin"
 
 # bun
@@ -86,9 +83,6 @@ end
 if test -d (brew --prefix)"/share/fish/vendor_completions.d"
     set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
 end
-
-# Added by Windsurf
-fish_add_path /Users/yassine/.codeium/windsurf/bin
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
