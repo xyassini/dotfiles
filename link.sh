@@ -4,12 +4,12 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Install Homebrew if not installed
-if ! command -v brew &> /dev/null; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+# if ! command -v brew &> /dev/null; then
+#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# fi
 
 # Install packages from Brewfile
-brew bundle install --file=$SCRIPT_DIR/Brewfile
+# brew bundle install --file=$SCRIPT_DIR/Brewfile
 
 # Function to create a symlink with backup functionality
 link_config() {
@@ -125,6 +125,7 @@ CONFIGS=(
     "ghostty"
     "nvim"
     "fish"
+    "alacritty"
     # "tmux:.tmux.conf"                        # Links to ~/.tmux.conf
     # "git:.gitconfig"                         # Links to ~/.gitconfig
     # "zsh:.zshrc"                             # Links to ~/.zshrc

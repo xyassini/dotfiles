@@ -1,0 +1,17 @@
+[general]
+import = [
+  "theme.toml",
+  "keybinds.toml",
+]
+
+[window]
+resize_increments = true
+option_as_alt = "OnlyLeft"
+
+[font]
+size = 11.25
+normal = { family = "JetBrainsMono Nerd Font" }
+bold = { family = "JetBrainsMono Nerd Font" }
+italic = { family = "JetBrainsMono Nerd Font" }
+bold_italic = { family = "JetBrainsMono Nerd Font" }
+
