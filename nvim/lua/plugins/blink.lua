@@ -17,7 +17,7 @@ return {
       default = { 'lazydev', 'lsp', 'copilot', 'path', 'snippets' },
       providers = {
         lsp = {
-          score_offset = 1,
+          score_offset = 10,
         },
         lazydev = {
           name = 'LazyDev',
@@ -27,7 +27,7 @@ return {
         copilot = {
           name = 'copilot',
           module = 'blink-copilot',
-          score_offset = -1,
+          score_offset = -100,
           async = true,
         },
       },
