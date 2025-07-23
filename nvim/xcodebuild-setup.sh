@@ -1,0 +1,3 @@
+#!/bin/bash
+
+set DEST "$HOME/Library/xcodebuild.nvim"; and set SOURCE "$HOME/.local/share/nvim/lazy/xcodebuild.nvim/tools/remote_debugger"; and set ME (whoami); and sudo install -d -m 755 -o root "$DEST"; and sudo install -m 755 -o root "$SOURCE" "$DEST"; and sudo bash -c "echo \"$ME ALL = (ALL) NOPASSWD: $DEST/remote_debugger\" >> /etc/sudoers"; and set DEST "$HOME/Library/xcodebuild.nvim"; and set SOURCE "$HOME/.local/share/nvim/lazy/xcodebuild.nvim/tools/xcodebuild_offline"; and set ME (whoami); and sudo install -d -m 755 -o root "$DEST"; and sudo install -m 755 -o root "$SOURCE" "$DEST"; and sudo bash -c "echo \"$ME ALL = (ALL) NOPASSWD: $DEST/xcodebuild_offline\" >> /etc/sudoers"
