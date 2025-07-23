@@ -7,5 +7,14 @@ return {
     'folke/snacks.nvim', -- (optional) to show previews
     'nvim-treesitter/nvim-treesitter', -- (optional) for Quick tests support (required Swift parser)
   },
-  opts = {},
+  opts = {
+    integrations = {
+      pymobiledevice = {
+        enabled = true,
+      },
+      xcodebuild_offline = {
+        enabled = true,
+      },
+    },
+  },
 }

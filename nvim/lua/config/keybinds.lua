@@ -151,4 +151,22 @@ which_key.add {
     end,
     desc = 'Open code actions',
   },
+
+  -- Commenting
+  {
+    'tc',
+    function()
+      vim.cmd.norm 'gcc'
+    end,
+  },
+
+  {
+    mode = 'v',
+    {
+      'tc',
+      function()
+        vim.cmd.norm 'gc'
+      end,
+    },
+  },
 }
