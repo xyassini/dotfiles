@@ -85,7 +85,6 @@ return {
         show_on_insert = true,
         show_on_blocked_trigger_characters = {},
         show_on_x_blocked_trigger_characters = {},
-        show_on_y_blocked_trigger_characters = {},
       },
       documentation = {
         auto_show = true,
@@ -95,8 +94,10 @@ return {
         auto_show = true,
       },
       list = {
-        preselect = true,
-        auto_insert = false,
+        selection = {
+          preselect = true,
+          auto_insert = false,
+        },
       },
     },
   },
