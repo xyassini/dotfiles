@@ -7,7 +7,7 @@
 
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = 'LspAttach',
+  event = { "BufRead", "BufNewFile" },
   branch = 'main',
   build = ':TSUpdate',
 }
