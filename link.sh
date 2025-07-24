@@ -122,10 +122,9 @@ link_config_custom() {
 # Configuration list - add your configs here
 # Format: "folder_name" or "folder_name:custom_target_path"
 CONFIGS=(
-    "ghostty"
     "nvim"
     "fish"
-    "alacritty"
+    "kitty"
     # "tmux:.tmux.conf"                        # Links to ~/.tmux.conf
     # "git:.gitconfig"                         # Links to ~/.gitconfig
     # "zsh:.zshrc"                             # Links to ~/.zshrc
