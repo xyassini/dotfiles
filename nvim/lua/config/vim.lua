@@ -14,10 +14,10 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
 
-vim.api.nvim_set_option("clipboard", "unnamed")
+vim.api.nvim_set_option('clipboard', 'unnamed')
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
