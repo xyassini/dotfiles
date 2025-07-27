@@ -169,4 +169,25 @@ which_key.add {
       end,
     },
   },
+
+  -- Xcodebuild
+
+  {
+    '<leader>xr',
+    desc = 'Xcodebuild',
+  },
+  {
+    '<leader>xr',
+    function()
+      vim.cmd 'XcodebuildBuildRun'
+    end,
+    desc = 'Build & Run',
+  },
+  {
+    '<leader>1',
+    function()
+      vim.cmd 'XcodebuildBuildRun'
+    end,
+    desc = 'Build & Run',
+  },
 }
