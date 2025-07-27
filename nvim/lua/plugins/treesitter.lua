@@ -1,13 +1,14 @@
--- return {
---   'nvim-treesitter/nvim-treesitter',
---   event = 'LspAttach',
---   branch = 'master',
---   build = ':TSUpdate',
--- }
-
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = { "BufRead", "BufNewFile" },
+  lazy = false,
   branch = 'main',
   build = ':TSUpdate',
+  config = true,
+  init = function()
+    vim.api.nvim_create_autocmd({ 'BufWinEnter', 'BufNewFile' }, {
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
+    })
+  end,
 }
