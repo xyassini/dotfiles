@@ -29,7 +29,6 @@ return {
           'lsp',
           'copilot',
           'path',
-          'snippets',
           'avante_commands',
           'avante_mentions',
           'avante_shortcuts',
@@ -62,11 +61,13 @@ return {
           },
           lsp = {
             score_offset = 10,
+            async = true,
           },
           lazydev = {
             name = 'LazyDev',
             module = 'lazydev.integrations.blink',
             score_offset = 100,
+            async = true,
           },
           copilot = {
             name = 'copilot',

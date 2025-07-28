@@ -9,9 +9,5 @@ return {
   config = function()
     require('mason').setup()
     require('mason-lspconfig').setup()
-
-    vim.lsp.config('*', {
-      capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    })
   end,
 }

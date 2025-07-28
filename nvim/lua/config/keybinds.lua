@@ -173,7 +173,7 @@ which_key.add {
   -- Xcodebuild
 
   {
-    '<leader>xr',
+    '<leader>x',
     desc = 'Xcodebuild',
   },
   {
@@ -189,5 +189,41 @@ which_key.add {
       vim.cmd 'XcodebuildBuildRun'
     end,
     desc = 'Build & Run',
+  },
+
+  -- Typescript
+  {
+    '<leader>t',
+    desc = 'Typescript Tools',
+  },
+  {
+    '<leader>ti',
+    function()
+      vim.cmd 'TSToolsAddMissingImports'
+    end,
+    desc = 'Add missing imports',
+  },
+  {
+    '<leader>tf',
+    function()
+      vim.cmd 'TSToolsFixAll'
+    end,
+    desc = 'Fix all issues',
+  },
+  {
+    '<leader>to',
+    function()
+      vim.cmd 'TSToolsOrganizeImports'
+    end,
+    desc = 'Organize imports',
+  },
+  {
+    '<leader>tt',
+    function()
+      vim.cmd 'TSToolsAddMissingImports'
+      vim.cmd 'TSToolsOrganizeImports'
+      vim.cmd 'TSToolsFixAll'
+    end,
+    desc = 'Add missing imports, organize imports and fix all issues',
   },
 }

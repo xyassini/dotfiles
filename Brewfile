@@ -1,9 +1,5 @@
-# Applications
-cask "ghostty"
-
 # Brewfile
 tap "1password/tap"
-tap "homebrew/cask-fonts"
 
 # CLI tools
 brew "git"
@@ -19,5 +15,4 @@ brew "lazygit"
 
 # Applications
 cask "1password-cli"
-cask "font-sauce-code-pro-nerd-font"
-cask "ghostty"
+cask "kitty"
