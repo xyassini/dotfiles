@@ -46,3 +46,5 @@ vim.o.undofile = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
+
+vim.opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'winpos', 'localoptions', 'help', 'globals', 'skiprtp', 'folds' }
