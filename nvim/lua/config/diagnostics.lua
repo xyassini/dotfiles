@@ -4,7 +4,7 @@ vim.diagnostic.config {
     severity_limit = 'Warning',
   },
   underline = true,
-  update_in_insert = true,
+  update_in_insert = false,
   severity_sort = true,
   float = {
     source = true,
@@ -19,10 +19,8 @@ vim.diagnostic.config {
       [vim.diagnostic.severity.INFO] = 'i',
       [vim.diagnostic.severity.HINT] = '?',
     },
-    linehl = {
-      [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
-    },
     numhl = {
+      [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
       [vim.diagnostic.severity.WARN] = 'WarningMsg',
     },
   },
