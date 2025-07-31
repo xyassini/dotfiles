@@ -2,7 +2,7 @@ return {
   'wojciech-kulik/xcodebuild.nvim',
   ft = 'swift',
   dependencies = {
-    'nvim-telescope/telescope.nvim',
+    { 'nvim-telescope/telescope.nvim', lazy = true },
     'MunifTanjim/nui.nvim',
     -- 'folke/snacks.nvim', -- (optional) to show previews
     'nvim-treesitter/nvim-treesitter',

@@ -1,25 +1,46 @@
+-- return {
+--   'hrsh7th/nvim-cmp',
+--   event = "InsertEnter",
+--   dependencies = {
+--     'hrsh7th/cmp-nvim-lsp',
+--     -- 'hrsh7th/cmp-buffer',
+--     'hrsh7th/cmp-path',
+--     'hrsh7th/cmp-cmdline',
+--     -- 'hrsh7th/cmp-copilot', -- use blink.cmp instead
+--   },
+--   opts = {
+--
+--   },
+--   config = function()
+--     vim.lsp.config('*', {
+--       capabilities = require('cmp_nvim_lsp').default_capabilities()
+--     })
+--   end
+-- }
+
 return {
-  {
-    'saghen/blink.compat',
-    -- use v2.* for blink.cmp v1.*
-    version = '2.*',
-    -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
-    lazy = true,
-    -- make sure to set opts so that lazy.nvim calls blink.compat's setup
-    opts = {},
-  },
+  -- {
+  --   'saghen/blink.compat',
+  --   -- use v2.* for blink.cmp v1.*
+  --   version = '2.*',
+  --   -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+  --   lazy = true,
+  --   -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+  --   opts = {},
+  -- },
   {
     'saghen/blink.cmp',
-    event = 'InsertEnter',
+    event = { 'InsertEnter', 'CmdlineEnter' },
     version = '1.*',
     dependencies = {
       {
         'fang2hou/blink-copilot',
         opts = {
-          debounce = 100,
+          debounce = 200,
         },
       },
     },
+    opts_extend = { 'sources.default' },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -29,45 +50,43 @@ return {
           'lsp',
           'copilot',
           'path',
-          'avante_commands',
-          'avante_mentions',
-          'avante_shortcuts',
-          'avante_files',
+          -- 'avante_commands',
+          -- 'avante_mentions',
+          -- 'avante_shortcuts',
+          -- 'avante_files',
         },
         providers = {
-          avante_commands = {
-            name = 'avante_commands',
-            module = 'blink.compat.source',
-            score_offset = 90, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_files = {
-            name = 'avante_files',
-            module = 'blink.compat.source',
-            score_offset = 100, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_mentions = {
-            name = 'avante_mentions',
-            module = 'blink.compat.source',
-            score_offset = 1000, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_shortcuts = {
-            name = 'avante_shortcuts',
-            module = 'blink.compat.source',
-            score_offset = 1000, -- show at a higher priority than lsp
-            opts = {},
-          },
+          -- avante_commands = {
+          --   name = 'avante_commands',
+          --   module = 'blink.compat.source',
+          --   score_offset = 90, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
+          -- avante_files = {
+          --   name = 'avante_files',
+          --   module = 'blink.compat.source',
+          --   score_offset = 100, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
+          -- avante_mentions = {
+          --   name = 'avante_mentions',
+          --   module = 'blink.compat.source',
+          --   score_offset = 1000, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
+          -- avante_shortcuts = {
+          --   name = 'avante_shortcuts',
+          --   module = 'blink.compat.source',
+          --   score_offset = 1000, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
           lsp = {
             score_offset = 10,
-            async = true,
           },
           lazydev = {
             name = 'LazyDev',
             module = 'lazydev.integrations.blink',
             score_offset = 100,
-            async = true,
           },
           copilot = {
             name = 'copilot',
@@ -90,6 +109,7 @@ return {
         ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
         ['<C-e>'] = { 'hide', 'fallback' },
 
+        ['<CR>'] = { 'accept', 'fallback' },
         ['<Tab>'] = { 'accept', 'fallback' },
         ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 
@@ -108,8 +128,8 @@ return {
         trigger = {
           enabled = true,
           show_on_keyword = true,
-          blocked_trigger_characters = {},
-          blocked_retrigger_characters = {},
+          -- blocked_trigger_characters = {},
+          -- blocked_retrigger_characters = {},
           show_on_trigger_character = true,
           show_on_insert = true,
           show_on_insert_on_trigger_character = true,
@@ -118,6 +138,11 @@ return {
       cmdline = {
         enabled = true,
         completion = { menu = { auto_show = true } },
+        keymap = {
+          -- ['<CR>'] = { 'accept_and_enter', 'fallback' },
+          ['<Up>'] = { 'select_prev', 'fallback' },
+          ['<Down>'] = { 'select_next', 'fallback' },
+        },
       },
       completion = {
         keyword = {
@@ -128,12 +153,12 @@ return {
           show_on_backspace = true,
           show_on_backspace_in_keyword = true,
           show_on_insert = true,
-          show_on_blocked_trigger_characters = {},
-          show_on_x_blocked_trigger_characters = {},
+          -- show_on_blocked_trigger_characters = {},
+          -- show_on_x_blocked_trigger_characters = {},
         },
         documentation = {
           auto_show = true,
-          auto_show_delay_ms = 200,
+          -- auto_show_delay_ms = 200,
         },
         menu = {
           auto_show = true,

@@ -24,3 +24,11 @@ vim.api.nvim_create_autocmd({ 'WinLeave', 'InsertEnter' }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'DiagnosticChanged' }, {
+  callback = function()
+    if diagnostic_float_win and vim.api.nvim_win_is_valid(diagnostic_float_win) then
+      pcall(vim.api.nvim_win_close, diagnostic_float_win, false)
+    end
+  end,
+})

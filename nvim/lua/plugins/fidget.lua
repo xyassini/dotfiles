@@ -3,8 +3,6 @@ return {
   event = 'BufReadPre',
   opts = {
     notification = {
-      override_vim_notify = true,
-
       window = {
         normal_hl = 'Normal',
         winblend = 0,
@@ -12,7 +10,7 @@ return {
     },
     integration = {
       ['xcodebuild-nvim'] = {
-        enable = true,
+        enable = false,
       },
     },
   },

@@ -1,13 +1,9 @@
 return {
   'mason-org/mason-lspconfig.nvim',
-  event = { 'CursorHold', 'CursorHoldI' },
-  cmd = { 'Mason', 'MasonInstall', 'MasonUninstall', 'MasonUpdate' },
+  event = { 'FileType' },
+  opts = {},
   dependencies = {
-    'mason-org/mason.nvim',
+    { 'mason-org/mason.nvim', opts = {} },
     'neovim/nvim-lspconfig',
   },
-  config = function()
-    require('mason').setup()
-    require('mason-lspconfig').setup()
-  end,
 }
