@@ -109,7 +109,7 @@ return {
         ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
         ['<C-e>'] = { 'hide', 'fallback' },
 
-        ['<CR>'] = { 'accept', 'fallback' },
+        -- ['<CR>'] = { 'accept', 'fallback' },
         ['<Tab>'] = { 'accept', 'fallback' },
         ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
 
