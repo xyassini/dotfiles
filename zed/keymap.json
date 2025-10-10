@@ -1,0 +1,105 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "alt-+": "pane::SplitRight",
+      "alt-ü": "pane::SplitLeft",
+      "alt-ß": "pane::SplitUp",
+      "alt-ä": "pane::SplitDown",
+      "ctrl-+": ["workspace::SendKeystrokes", "alt-+ ctrl-p"],
+      "ctrl-ü": ["workspace::SendKeystrokes", "alt-ü ctrl-p"],
+      "ctrl-ß": ["workspace::SendKeystrokes", "alt-ß ctrl-p"],
+      "ctrl-ä": ["workspace::SendKeystrokes", "alt-ä ctrl-p"],
+      "shift-down": ["workspace::SendKeystrokes", "ctrl-d"],
+      "shift-up": ["workspace::SendKeystrokes", "ctrl-u"],
+      "+": "workspace::ActivatePaneRight",
+      "ü": "workspace::ActivatePaneLeft",
+      "ß": "workspace::ActivatePaneUp",
+      "ä": "workspace::ActivatePaneDown",
+      "ö": "editor::Format",
+      "space e": "workspace::ToggleLeftDock",
+      "ctrl-p": "file_finder::Toggle",
+      "ctrl-f": "workspace::NewSearch",
+      "alt-,": "zed::IncreaseBufferFontSize",
+      "alt--": "zed::DecreaseBufferFontSize",
+      "alt-.": "zed::ResetBufferFontSize",
+      "t c": "editor::ToggleComments",
+      "t t": "workspace::NewCenterTerminal",
+      "space g": "git_panel::ToggleFocus",
+      "ctrl-enter": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      "t c": "editor::ToggleComments"
+    }
+  },
+  {
+    "context": "Editor && !VimWaiting && !menu",
+    "bindings": {
+      "shift-left": "vim::PreviousSubwordEnd",
+      "shift-right": "vim::NextSubwordStart"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "n": "project_panel::NewFile",
+      "a": "project_panel::NewFile",
+      "r": "project_panel::Rename",
+      "d": ["project_panel::Trash", { "skip_prompt": false }],
+      "+": "workspace::ActivatePaneRight",
+      "ü": "workspace::ActivatePaneLeft",
+      "ß": "workspace::ActivatePaneUp",
+      "ä": "workspace::ActivatePaneDown",
+      "space e": ["workspace::SendKeystrokes", "+ space e"]
+    }
+  },
+  {
+    "context": "Editor && editor_agent_diff",
+    "bindings": {
+      "cmd-enter": "agent::KeepAll"
+    }
+  },
+  {
+    "context": "AgentDiff",
+    "bindings": {
+      "cmd-enter": "agent::KeepAll"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-l": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "GitPanel && ChangesList",
+    "bindings": {
+      "space": "git::ToggleStaged",
+      "q": "workspace::ToggleLeftDock",
+      "a": "git::StageAll",
+      "c": "git::Commit",
+      "p": "git::Pull",
+      "P": "git::Push",
+      "f": "git::Fetch",
+      "ä": "git::Switch",
+      "d": ["git::RestoreFile", { "skip_prompt": false }],
+      "+": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "GitPanel && not_editing",
+    "bindings": {
+      "space g": ["workspace::SendKeystrokes", "+ space e"]
+    }
+  }
+]
