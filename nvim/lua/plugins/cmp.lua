@@ -12,10 +12,11 @@ return {
 
       ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'hide', 'fallback' },
-
       ['<Tab>'] = {
-        'accept',
-        function() -- sidekick next edit suggestion
+        function(cmp)
+          if cmp.is_visible() then
+            return cmp.accept()
+          end
           return require('sidekick').nes_jump_or_apply()
         end,
         'fallback',
