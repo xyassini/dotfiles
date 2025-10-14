@@ -8,7 +8,6 @@ return {
   opts = {
     style = 'night',
     light_style = 'day',
-    dim_inactive = true, -- dims inactive windows
     ---@param colors ColorScheme
     on_colors = function(colors)
       colors.bg = '#000000'
