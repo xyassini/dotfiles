@@ -1,8 +1,14 @@
 set -Ux EDITOR nvim
 set -U fish_greeting ""
 
+fish_vi_key_bindings --no-erase insert
+
 if uname -m | grep --quiet "arm64" 2>&1 > /dev/null ;
   eval (/opt/homebrew/bin/brew shellenv)
+end
+
+if type -q zoxide
+  zoxide init --cmd cd fish | source
 end
 
 alias vi "nvim"
@@ -13,6 +19,7 @@ alias g "lazygit"
 alias p "bunx gitprompt@latest -y -t 1000000 && git push"
 alias c "bunx gitprompt@latest -y -t 1000000"
 alias cc "bunx gitprompt@latest"
+alias ls "eza"
 
 # nodenv
 status --is-interactive; and source (nodenv init -|psub)
@@ -87,3 +94,4 @@ end
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
