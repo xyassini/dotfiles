@@ -226,4 +226,13 @@ which_key.add {
     end,
     desc = 'Add missing imports, organize imports and fix all issues',
   },
+
+  -- Others
+  {
+    '<leader>g',
+    function ()
+      require('snacks').lazygit()
+    end
+  }
 }
+
