@@ -4,13 +4,7 @@ return {
   dependencies = {
     { 'nvim-telescope/telescope.nvim', lazy = true },
     'MunifTanjim/nui.nvim',
-    {
-      'https://github.com/wojciech-kulik/snacks.nvim',
-      opts = {
-        image = {
-        },
-      },
-    },
+    'https://github.com/wojciech-kulik/snacks.nvim',
     'nvim-treesitter/nvim-treesitter',
   },
   opts = {
