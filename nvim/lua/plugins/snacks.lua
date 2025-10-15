@@ -22,11 +22,5 @@ return {
         enabled = true,
       },
     },
-    -- indent = {
-    --   enabled = true,
-    --   priority = 100,
-    --   only_scope = true,
-    --   only_current = true,
-    -- },
   },
 }

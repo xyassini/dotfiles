@@ -184,7 +184,7 @@ which_key.add {
     desc = 'Build & Run',
   },
   {
-    '<leader>1',
+    '<leader>0',
     function()
       vim.cmd 'XcodebuildBuildRun'
     end,
