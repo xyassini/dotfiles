@@ -19,6 +19,7 @@ return {
       },
       scope = {
         enabled = true,
+        only_current = true,
       },
     },
   },
