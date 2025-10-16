@@ -1,15 +1,20 @@
 return {
   'ibhagwan/fzf-lua',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
   cmd = { 'FzfLua' },
-  ---@module 'fzf-lua'
-  ---@type fzf-lua.Config
-  opts = {
-    'max-perf',
-  },
-  config = function(opts)
-    require('fzf-lua').setup(opts)
+  config = function()
+    require('fzf-lua').setup {
+      'max-perf',
+      previewers = {
+        builtin = {
+          snacks_image = {
+            enabled = true,
+            render_inline = true,
+          },
+        },
+      },
+    }
     require('fzf-lua').register_ui_select()
   end,
 }

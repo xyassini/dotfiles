@@ -1,7 +1,6 @@
 return {
   'https://github.com/wojciech-kulik/snacks.nvim',
-  priority = 1000,
-  lazy = false,
+  event = 'BufWinEnter',
   ---@type snacks.Config
   opts = {
     bigfile = {
