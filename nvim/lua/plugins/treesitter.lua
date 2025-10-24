@@ -19,6 +19,7 @@ return {
       'svelte',
       'javascript',
       'typescript',
+      'angular',
       'jsx',
       'tsx',
       'json',
